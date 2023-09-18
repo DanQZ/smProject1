@@ -8,7 +8,6 @@ public class EventOrganizer {
         System.out.println("Event Organizer Running...");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("asfdasdfasd");
         String newInput = "";
         while(!newInput.equals("q")){
             newInput = scanner.nextLine();
