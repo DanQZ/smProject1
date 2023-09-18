@@ -9,11 +9,15 @@ public class EventOrganizer {
         Scanner scanner = new Scanner(System.in);
 
         String newInput = "";
-        while(!newInput.equals("q")){
+        while(!newInput.equals("Q")){
             newInput = scanner.nextLine();
             System.out.println("input: " + newInput);
         }
 
         scanner.close();
+    }
+
+    private void addEvent(){
+
     }
 }
