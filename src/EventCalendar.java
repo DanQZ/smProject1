@@ -13,8 +13,10 @@ public class EventCalendar {
         }
         return NOT_FOUND;
     } //search an event in the list
+
+    private final int GROW_BY = 4;
     private void grow() {
-        int newSize = events.length + 4;
+        int newSize = events.length + GROW_BY;
         Event[] newArray = new Event[newSize];
         for (int i = 0; i < events.length; i++) {
             newArray[i] = events[i];
