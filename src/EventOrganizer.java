@@ -2,6 +2,7 @@
  * @Kimberly Donnarumma
  * @
  */
+import java.sql.Time;
 import java.util.Scanner;
 public class EventOrganizer {
     /*
@@ -36,48 +37,62 @@ public class EventOrganizer {
         boolean runningOrganizer = true;
         while(runningOrganizer){
             newInput = scanner.nextLine();
-            System.out.println("input: " + newInput);
-            String[] tokens = tokenize(newInput);
-            int i = 0;
-            for (String checkedToken:
-                 tokens) {
-                System.out.println("Token " + i + ": " + checkedToken);
-                i++;
-            }
-            String command = tokens[0];
-            String date = tokens[1];
-            String timeOfDay = tokens[2];
-            String room = tokens[3];
-            String department = tokens[4];
-            String email = tokens[5];
-            String durationMinutes = tokens[6];
-            if(!commandIsValid(tokens[0])){
-                System.out.println(command + " is an invalid command!");
-                continue;
-            }
+            parseAndRunInput(newInput);
         }
         scanner.close();
     }
 
-    String[] tokenize(String inputString){
+    void parseAndRunInput(String newInput){
+        System.out.println("input: " + newInput);
+        String[] tokens = tokenize(newInput, " ");
+        int i = 0;
+        for (String checkedToken:
+                tokens) {
+            System.out.println("Token " + i + ": " + checkedToken);
+            i++;
+        }
+        String commandToken = tokens[0];
+        String dateToken = tokens[1];
+        String timeslotToken = tokens[2];
+        String locationToken = tokens[3];
+        String departmentToken = tokens[4];
+        String emailToken = tokens[5];
+        String durationMinutesToken = tokens[6];
+        if(!commandIsValid(commandToken)){
+            System.out.println(commandToken + " is an invalid command!");
+            return;
+        }
+
+        Date newDate = parseAndCreateDate(dateToken);
+        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
+        Location newLocation = parseAndCreateLocation(locationToken);
+        Department newDepartment = parseAndCreateDepartment(departmentToken);
+        String newEmail = emailToken;
+        int newDuration = -1;
+        if(durationMinutesToken != null){
+            newDuration = Integer.parseInt(durationMinutesToken);
+        }
+    }
+
+    // splits up a string, splitting based on the separator character
+    String[] tokenize(String inputString, String separator) {
         String[] output = new String[10];
         int curTokenIndex = 0;
         String curToken = "";
-        for(int i = 0; i < inputString.length(); i++){
-            String curChar = inputString.substring(i, i+1);
-            if(inputString.substring(i, i+1).equals(" ")){
-                if(!curToken.equals("")){
+        for (int i = 0; i < inputString.length(); i++) {
+            String curChar = inputString.substring(i, i + 1);
+            if (inputString.substring(i, i + 1).equals(separator)) {
+                if (!curToken.equals("")) {
                     output[curTokenIndex] = curToken;
                     curTokenIndex++;
                 }
                 curToken = "";
-            }
-            else{
+            } else {
                 curToken += curChar;
             }
         }
 
-        if(!curToken.equals("")){
+        if (!curToken.equals("")) {
             output[curTokenIndex] = curToken;
         }
 
@@ -88,6 +103,8 @@ public class EventOrganizer {
         switch (command){
             default:
                 return false;
+            case "A":
+                break;
             case "R":
                 break;
             case "P":
@@ -102,6 +119,122 @@ public class EventOrganizer {
                 break;
         }
         return true;
+    }
+
+    // returns null if invalid date, otherwise returns new Date
+    private Date parseAndCreateDate(String dateInput){
+        if(dateInput == null){
+            System.out.println("dateArg is null");
+            return null;
+        }
+        String[] dateTokens = tokenize(dateInput, "/");
+        /*
+        for(int i = 0; i < 5; i++){
+            System.out.println("date token " + i + ": " + dateTokens[i]);
+        }
+        */
+
+        int month = -61398076;
+        int day= -12341234;
+        int year= -69;
+
+        try {
+            month = Integer.parseInt(dateTokens[0]);
+            day = Integer.parseInt(dateTokens[1]);
+            year = Integer.parseInt(dateTokens[2]);
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Invalid date syntax!");
+        }
+        Date newDate = new Date(year,month,day);
+        System.out.println("New date year: " + year + ", month: " + month + ", day: " + day);
+
+        return newDate;
+    }
+    //returns null if invalid
+    private Timeslot parseAndCreateTimeslot(String timeslotArg){
+        if(timeslotArg == null){
+            return null;
+        }
+
+        Timeslot newSlot = Timeslot.MORNING;
+        String timeslotLower = timeslotArg.toLowerCase();
+        switch (timeslotLower){
+            default:
+                System.out.println("invalid timeslot");
+                return null;
+            case "morning":
+                break;
+            case "afternoon":
+                newSlot = Timeslot.AFTERNOON;
+                break;
+            case "eveninng":
+                newSlot = Timeslot.EVENING;
+                break;
+        }
+        return newSlot;
+    }
+
+    private Location parseAndCreateLocation(String locationArg){
+        if(locationArg == null){
+            System.out.println("null locationArg");
+            return null;
+        }
+        Location newLocation = Location.AB2225;
+        switch (locationArg){
+            default:
+                System.out.println("invalid location!");
+                return null;
+            case "HLL114":
+                newLocation = Location.HLL114;
+                break;
+            case "ARC103":
+                newLocation = Location.ARC103;
+                break;
+            case "BE_AUD":
+                newLocation = Location.BE_AUD;
+                break;
+            case "TIL232":
+                newLocation = Location.TIL232;
+                break;
+            case "AB2225":
+                newLocation = Location.AB2225;
+                break;
+            case "MU302":
+                newLocation = Location.MU302;
+                break;
+        }
+        return newLocation;
+    }
+
+    private Department parseAndCreateDepartment(String departmentArg) {
+        if(departmentArg == null){
+            System.out.println("null departmentArg");
+            return null;
+        }
+        Department newDepartment = Department.CS;
+        switch (departmentArg) {
+            default:
+                System.out.println("invalid department");
+                return null;
+            case "CS":
+                newDepartment = Department.CS;
+                break;
+            case "EE":
+                newDepartment = Department.EE;
+                break;
+            case "ITI":
+                newDepartment = Department.ITI;
+                break;
+            case "MATH":
+                newDepartment = Department.MATH;
+                break;
+            case "BAIT":
+                newDepartment = Department.BAIT;
+                break;
+        }
+
+        return newDepartment;
     }
 
     private void addEvent(){
