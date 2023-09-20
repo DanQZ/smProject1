@@ -70,6 +70,9 @@ public class EventCalendar {
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEventPositions = i - 1;
+
+            while(previousEventPositions >= 0 &&
+                events[previousEventPositions].)
         }
     } //ordered by date and timeslot
     public void printByCampus() {

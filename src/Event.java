@@ -42,9 +42,14 @@ public class Event implements Comparable<Event>{
     }
 
     @Override
-    public boolean equals(Event event){
-        if(this.compareTo(event) == 0){
-            return true;
+    public boolean equals(Object obj){
+        if(obj instanceof Event){
+            Event event = (Event) obj;
+            if(this.date.equals(event.date) &&
+                this.startTime.equals(event.startTime) &&
+                this.location.equals(event.location)){
+                return true;
+            }
         }
         return false;
     }
