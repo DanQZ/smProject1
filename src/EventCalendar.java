@@ -65,8 +65,12 @@ public class EventCalendar {
             checkedEvent.toString();
         }
     } //print the array as is
-    public void printByDate() {
 
+    public void printByDate() {
+        for(int i = 1; i < numEvents; i++){
+            Event currentEvent = events[i];
+            int previousEventPositions = i - 1;
+        }
     } //ordered by date and timeslot
     public void printByCampus() {
 

@@ -23,6 +23,7 @@ public class Date implements Comparable<Date>{
         Date test = new Date(2000, 4, 7);
         System.out.println("Is this date valid: " + test.isValid());
     }
+
     public boolean isValid(){
         if(this.month == 1 || this.month == 3 ||
             this.month == 5 || this.month == 7 ||
@@ -67,7 +68,6 @@ public class Date implements Comparable<Date>{
     }
 
     /**
-     *
      * @param year
      * @return True if given year is a leap year, false otherwise.
      */
@@ -115,5 +115,18 @@ public class Date implements Comparable<Date>{
                 }
             }
         }
+    }
+
+    @Override
+    public String toString(){
+        String dateString = "";
+
+        dateString += month;
+        dateString += "/";
+        dateString += day;
+        dateString += "/";
+        dateString += year;
+
+        return dateString;
     }
 }
