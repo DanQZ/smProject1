@@ -67,14 +67,22 @@ public class EventCalendar {
     } //print the array as is
 
     public void printByDate() {
+        //Sort the array
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
-            int previousEventPositions = i - 1;
+            int previousEvent = i - 1;
 
-            while(previousEventPositions >= 0 &&
-                events[previousEventPositions].)
+            while(previousEvent >= 0 &&
+                events[previousEvent].getDate().compareTo(currentEvent.getDate()) > 0){
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
+            }
+            events[previousEvent + 1] = currentEvent;
         }
+        //Print the array
+        print();
     } //ordered by date and timeslot
+
     public void printByCampus() {
 
     } //ordered by campus and building/room

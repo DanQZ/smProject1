@@ -30,6 +30,10 @@ public class Event implements Comparable<Event>{
         this.duration = duration;
     }
 
+    public Date getDate(){
+        return date;
+    }
+
     @Override
     public int compareTo(Event event){
         if(this.date.compareTo(event.date) > 0){
