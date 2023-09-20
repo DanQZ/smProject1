@@ -67,7 +67,7 @@ public class EventCalendar {
     } //print the array as is
 
     /**
-     * Sorts the array by date. **STILL NEEDS SORT BY TIMESLOT
+     * Sorts and prints the array by date. **STILL NEEDS SORT BY TIMESLOT
      */
     public void printByDate() {
         //Sort the array by date; Still needs to be sorted by timeslot
@@ -87,7 +87,7 @@ public class EventCalendar {
     } //ordered by date and timeslot
 
     /**
-     * Sorts the array by campus. **STILL NEEDS BUILDINGS
+     * Sorts and prints the array by campus. **STILL NEEDS BUILDINGS
      */
     public void printByCampus() {
         for(int i = 1; i < numEvents; i++){
@@ -96,8 +96,13 @@ public class EventCalendar {
 
             while(previousEvent >= 0 &&
                     events[previousEvent].getLocation().getCampus().compareTo(currentEvent.getLocation().getCampus()) > 0){
-                events[previousEvent + 1] = events[previousEvent];
-                previousEvent -= 1;
+                if(events[previousEvent].getStartTime().getHour() > currentEvent.getStartTime().getHour()) {
+                    //Insert code to organize by timeslot.
+                }
+                else{
+                    events[previousEvent + 1] = events[previousEvent];
+                    previousEvent -= 1;
+                }
             }
             events[previousEvent + 1] = currentEvent;
         }
@@ -105,7 +110,7 @@ public class EventCalendar {
     } //ordered by campus and building/room
 
     /**
-     * Sorts the array by department.
+     * Sorts and prints the array by department.
      */
     public void printByDepartment(){
         for(int i = 1; i < numEvents; i++){
