@@ -66,14 +66,20 @@ public class EventCalendar {
         }
     } //print the array as is
 
+    /**
+     * Sorts the array by date. **STILL NEEDS SORT BY TIMESLOT
+     */
     public void printByDate() {
-        //Sort the array
+        //Sort the array by date; Still needs to be sorted by timeslot
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
 
             while(previousEvent >= 0 &&
                 events[previousEvent].getDate().compareTo(currentEvent.getDate()) > 0){
+                if(events[previousEvent].getDate().compareTo(currentEvent.getDate()) == 0){
+                    while(events[previousEvent].getStartTime() )
+                }
                 events[previousEvent + 1] = events[previousEvent];
                 previousEvent -= 1;
             }
@@ -83,10 +89,39 @@ public class EventCalendar {
         print();
     } //ordered by date and timeslot
 
+    /**
+     * Sorts the array by campus. **STILL NEEDS BUILDINGS
+     */
     public void printByCampus() {
+        for(int i = 1; i < numEvents; i++){
+            Event currentEvent = events[i];
+            int previousEvent = i - 1;
 
+            while(previousEvent >= 0 &&
+                    events[previousEvent].getLocation().getCampus().compareTo(currentEvent.getLocation().getCampus()) > 0){
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
+            }
+            events[previousEvent + 1] = currentEvent;
+        }
+        print();
     } //ordered by campus and building/room
-    public void printByDepartment(){
 
+    /**
+     * Sorts the array by department.
+     */
+    public void printByDepartment(){
+        for(int i = 1; i < numEvents; i++){
+            Event currentEvent = events[i];
+            int previousEvent = i - 1;
+
+            while(previousEvent >= 0 &&
+                    events[previousEvent].getContact().getDepartment().compareTo(currentEvent.getContact().getDepartment()) > 0){
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
+            }
+            events[previousEvent + 1] = currentEvent;
+        }
+        print();
     } //ordered by department
 }

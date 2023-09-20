@@ -34,6 +34,18 @@ public class Event implements Comparable<Event>{
         return date;
     }
 
+    public Timeslot getStartTime(){
+        return startTime;
+    }
+
+    public Location getLocation(){
+        return location;
+    }
+
+    public Contact getContact(){
+        return contact;
+    }
+
     @Override
     public int compareTo(Event event){
         if(this.date.compareTo(event.date) > 0){

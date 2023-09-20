@@ -1,7 +1,7 @@
 public enum Timeslot {
-    MORNING(10, 3, 0),     // Associated with 8:00 AM
-    AFTERNOON(2, 0, 0),  // Associated with 12:00 PM
-    EVENING(6, 3, 0);    // Associated with 6:00 PM
+    MORNING(10, 3, 0),
+    AFTERNOON(14, 0, 0),
+    EVENING(18, 3, 0);
 
     private int hour;
     private int minuteFirstDigit;
