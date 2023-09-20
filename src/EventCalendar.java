@@ -77,9 +77,6 @@ public class EventCalendar {
 
             while(previousEvent >= 0 &&
                 events[previousEvent].getDate().compareTo(currentEvent.getDate()) > 0){
-                if(events[previousEvent].getDate().compareTo(currentEvent.getDate()) == 0){
-                    while(events[previousEvent].getStartTime() )
-                }
                 events[previousEvent + 1] = events[previousEvent];
                 previousEvent -= 1;
             }
