@@ -1,14 +1,25 @@
+/**
+ * @Kimberly Donnarumma
+ * @Daniel Zhang
+ */
+
 import java.util.Arrays;
 
 public class EventCalendar {
     private Event [] events; //the array holding the list of events
     private int numEvents; //current number of events in the array
 
+    public EventCalendar(){
+        events = new Event[4];
+        numEvents = 0;
+    }
+
     private final int NOT_FOUND = -1;
     private int find(Event event) {
         int i = 0;
         for (Event checkedEvent: events) {
             if(event.equals(checkedEvent)){
+                // System.out.println("Event match found at index " + i);
                 return i;
             }
             i++;
@@ -26,7 +37,14 @@ public class EventCalendar {
         events = newArray;
     } //increase the capacity by 4
 
-    public boolean add(Event event) {
+    public boolean add(Event newEvent) {
+        if(numEvents == events.length){
+            grow();
+        }
+        if(find(newEvent) != NOT_FOUND){
+            // event already booked at location and time
+            return false;
+        }
         int i = 0;
         while(events[i] != null){
             if(i >= events.length){
@@ -34,7 +52,8 @@ public class EventCalendar {
             }
             i++;
         }
-        events[i] = event;
+        events[i] = newEvent;
+        numEvents++;
         return true;
     }
     public boolean remove(Event event) {
@@ -45,13 +64,16 @@ public class EventCalendar {
 
         if(removeIndex == events.length-1){
             events[removeIndex] = null;
+            numEvents--;
             return true;
         }
 
-        for(int i = removeIndex; i < events.length; i++){
+        for(int i = removeIndex; i < events.length - 1; i++){
             events[i] = events[i+1];
         }
+        events[events.length-1] = null;
 
+        numEvents--;
         return true;
     }
     public boolean contains(Event event) {
@@ -61,8 +83,16 @@ public class EventCalendar {
         return true;
     }
     public void print() {
+        if(numEvents == 0){
+            System.out.println("Event calendar is empty!");
+        }
+
+        int i = 0;
         for (Event checkedEvent: events) {
-            checkedEvent.toString();
+            if(checkedEvent != null){
+                System.out.println(checkedEvent.toString());
+            }
+            i++;
         }
     } //print the array as is
 

@@ -1,7 +1,8 @@
 /**
  * @Kimberly Donnarumma
- * @
+ * @Daniel Zhang
  */
+
 import java.sql.Time;
 import java.util.Scanner;
 public class EventOrganizer {
@@ -30,11 +31,13 @@ public class EventOrganizer {
         domain name @rutgers.edu. The event duration is a positive integer representing the number of minutes. The
         duration is at least 30 minutes and at most 120 minutes.
      */
+    EventCalendar curCalendar;
     public void run(){
         System.out.println("Event Organizer Running...");
         Scanner scanner = new Scanner(System.in);
         String newInput = "";
         boolean runningOrganizer = true;
+        curCalendar = new EventCalendar();
         while(runningOrganizer){
             newInput = scanner.nextLine();
             parseAndRunInput(newInput);
@@ -42,36 +45,203 @@ public class EventOrganizer {
         scanner.close();
     }
 
+    private String commandToken;
+    private String dateToken;
+    private String timeslotToken;
+    private String locationToken;
+    private String departmentToken;
+    private String emailToken;
+    private String durationMinutesToken;
+
     void parseAndRunInput(String newInput){
-        System.out.println("input: " + newInput);
+       //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
         int i = 0;
         for (String checkedToken:
                 tokens) {
-            System.out.println("Token " + i + ": " + checkedToken);
+             //System.out.println("Token " + i + ": [" + checkedToken + "]");
             i++;
         }
-        String commandToken = tokens[0];
-        String dateToken = tokens[1];
-        String timeslotToken = tokens[2];
-        String locationToken = tokens[3];
-        String departmentToken = tokens[4];
-        String emailToken = tokens[5];
-        String durationMinutesToken = tokens[6];
+        commandToken = tokens[0];
+        dateToken = tokens[1];
+        timeslotToken = tokens[2];
+        locationToken = tokens[3];
+        departmentToken = tokens[4];
+        emailToken = tokens[5];
+        durationMinutesToken = tokens[6];
         if(!commandIsValid(commandToken)){
             System.out.println(commandToken + " is an invalid command!");
             return;
         }
 
+        runCommand(commandToken);
+        int newDuration = -1;
+        if(durationMinutesToken != null){
+            newDuration = Integer.parseInt(durationMinutesToken);
+        }
+    }
+    private boolean runCommand(String command){
+        boolean ran = false;
+
+        switch (command){
+            default:
+                return false;
+            case "A": // add
+                addEvent();
+                break;
+            case "R": // cancel
+                removeEvent();
+                break;
+            case "P": // display in current order in array
+                displayEventsCurrentOrder();
+                break;
+            case "PE": // display sorted by date/timeslot
+                displayEventsSorted("date");
+                break;
+            case "PC": // display sorted by campus/building/room
+                displayEventsSorted("campus");
+                break;
+            case "PD": // display sorted by department
+                displayEventsSorted("department");
+                break;
+            case "Q": // quit
+                break;
+        }
+        return ran;
+    }
+
+    private Event createEvent(){
         Date newDate = parseAndCreateDate(dateToken);
         Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
         Location newLocation = parseAndCreateLocation(locationToken);
         Department newDepartment = parseAndCreateDepartment(departmentToken);
         String newEmail = emailToken;
-        int newDuration = -1;
-        if(durationMinutesToken != null){
-            newDuration = Integer.parseInt(durationMinutesToken);
+        int newDuration = Integer.parseInt(durationMinutesToken);
+
+        Contact newContact = new Contact(newDepartment, newEmail);
+        Event newEvent = new Event(
+                newDate,
+                newTimeslot,
+                newLocation,
+                newContact,
+                newDuration
+        );
+        return newEvent;
+    }
+
+    private Event createTempEvent(){
+        Date newDate = parseAndCreateDate(dateToken);
+        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
+        Location newLocation = parseAndCreateLocation(locationToken);
+        Department newDepartment = Department.CS;
+        String newEmail = "cs@rutgers.edu";
+        int newDuration = 30;
+
+        Contact newContact = new Contact(newDepartment, newEmail);
+        Event tempEvent = new Event(
+                newDate,
+                newTimeslot,
+                newLocation,
+                newContact,
+                newDuration
+        );
+        return tempEvent;
+    }
+
+    private void addEvent(){
+        Date newDate = parseAndCreateDate(dateToken);
+        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
+        Location newLocation = parseAndCreateLocation(locationToken);
+        Department newDepartment = parseAndCreateDepartment(departmentToken);
+        String newEmail = emailToken;
+        int newDuration = Integer.parseInt(durationMinutesToken);
+
+        Contact newContact = new Contact(newDepartment, newEmail);
+        Event newEvent = new Event(
+            newDate,
+            newTimeslot,
+            newLocation,
+            newContact,
+            newDuration
+        );
+
+        boolean validEvent = newEventIsValid(newEvent);
+        if(!validEvent){
+            return;
         }
+        boolean success = curCalendar.add(newEvent);
+        if(success){
+            System.out.println("Event added to the calendar.");
+        }
+        else{
+            System.out.println("The event is already on the calendar.");
+            return;
+        }
+        if(newTimeslot == null){
+            System.out.println("Invalid time slot!");
+            return;
+        }
+    }
+
+    private void removeEvent(){
+        Event tempEvent = createTempEvent();
+        curCalendar.remove(tempEvent);
+    }
+    private void displayEventsCurrentOrder(){
+        curCalendar.print();
+    }
+    private void displayEventsSorted(String sortBy){
+        switch (sortBy){
+            default:
+                break;
+            case "date":
+                curCalendar.printByDate();
+                break;
+            case "campus":
+                curCalendar.printByCampus();
+                break;
+            case "department":
+                curCalendar.printByDepartment();
+                break;
+        }
+    }
+
+    private boolean newEventIsValid(Event newEvent){
+        /*
+        if(!newEvent.getContact().isValid()){
+            System.out.println("Invalid contact information!");
+            return false;
+        }
+        if(!newEvent.getDate().isValid()){
+        }
+        return true;
+        */
+        return true;
+    }
+
+    private boolean commandIsValid(String command){
+        if(command == null){
+            return false;
+        }
+        switch (command){
+            default:
+                return false;
+            case "A": // add
+                break;
+            case "R": // cancel
+                break;
+            case "P": // display in current order in array
+                break;
+            case "PE": // display sorted by date/timeslot
+                break;
+            case "PC": // display sorted by campus/building/room
+                break;
+            case "PD": // display sorted by department
+                break;
+            case "Q": // quit
+                break;
+        }
+        return true;
     }
 
     // splits up a string, splitting based on the separator character
@@ -97,28 +267,6 @@ public class EventOrganizer {
         }
 
         return output;
-    }
-
-    private boolean commandIsValid(String command){
-        switch (command){
-            default:
-                return false;
-            case "A":
-                break;
-            case "R":
-                break;
-            case "P":
-                break;
-            case "PE":
-                break;
-            case "PC":
-                break;
-            case "PD":
-                break;
-            case "Q":
-                break;
-        }
-        return true;
     }
 
     // returns null if invalid date, otherwise returns new Date
@@ -147,7 +295,7 @@ public class EventOrganizer {
             System.out.println("Invalid date syntax!");
         }
         Date newDate = new Date(year,month,day);
-        System.out.println("New date year: " + year + ", month: " + month + ", day: " + day);
+        // System.out.println("New date year: " + year + ", month: " + month + ", day: " + day);
 
         return newDate;
     }
@@ -168,7 +316,7 @@ public class EventOrganizer {
             case "afternoon":
                 newSlot = Timeslot.AFTERNOON;
                 break;
-            case "eveninng":
+            case "evening":
                 newSlot = Timeslot.EVENING;
                 break;
         }
@@ -180,8 +328,9 @@ public class EventOrganizer {
             System.out.println("null locationArg");
             return null;
         }
+        String formattedArg = locationArg.toUpperCase();
         Location newLocation = Location.AB2225;
-        switch (locationArg){
+        switch (formattedArg){
             default:
                 System.out.println("invalid location!");
                 return null;
@@ -209,11 +358,11 @@ public class EventOrganizer {
 
     private Department parseAndCreateDepartment(String departmentArg) {
         if(departmentArg == null){
-            System.out.println("null departmentArg");
             return null;
         }
+        String formattedArg = departmentArg.toUpperCase();
         Department newDepartment = Department.CS;
-        switch (departmentArg) {
+        switch (formattedArg) {
             default:
                 System.out.println("invalid department");
                 return null;
@@ -235,9 +384,5 @@ public class EventOrganizer {
         }
 
         return newDepartment;
-    }
-
-    private void addEvent(){
-
     }
 }
