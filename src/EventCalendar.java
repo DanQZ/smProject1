@@ -67,7 +67,7 @@ public class EventCalendar {
     } //print the array as is
 
     /**
-     * Sorts and prints the array by date. **STILL NEEDS SORT BY TIMESLOT
+     * Sorts and prints the array by date.
      */
     public void printByDate() {
         //Sort the array by date; Still needs to be sorted by timeslot
@@ -82,12 +82,29 @@ public class EventCalendar {
             }
             events[previousEvent + 1] = currentEvent;
         }
-        //Print the array
+        organizeTimeslot();
         print();
-    } //ordered by date and timeslot
+    }
 
     /**
-     * Sorts and prints the array by campus. **STILL NEEDS BUILDINGS
+     * Sorts the array by timeslot.
+     */
+    private void organizeTimeslot() {
+        for(int i = 1; i < numEvents; i++){
+            Event currentEvent = events[i];
+            int previousEvent = i - 1;
+
+            while(previousEvent >= 0 &&
+                    events[previousEvent].getStartTime().getHour() > currentEvent.getStartTime().getHour()){
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
+            }
+            events[previousEvent + 1] = currentEvent;
+        }
+    }
+
+    /**
+     * Sorts and prints the array by campus.
      */
     public void printByCampus() {
         for(int i = 1; i < numEvents; i++){
@@ -96,18 +113,31 @@ public class EventCalendar {
 
             while(previousEvent >= 0 &&
                     events[previousEvent].getLocation().getCampus().compareTo(currentEvent.getLocation().getCampus()) > 0){
-                if(events[previousEvent].getStartTime().getHour() > currentEvent.getStartTime().getHour()) {
-                    //Insert code to organize by timeslot.
-                }
-                else{
-                    events[previousEvent + 1] = events[previousEvent];
-                    previousEvent -= 1;
-                }
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
             }
             events[previousEvent + 1] = currentEvent;
         }
+        organizeBuilding();
         print();
-    } //ordered by campus and building/room
+    }
+
+    /**
+     * Sorts the array by building.
+     */
+    private void organizeBuilding() {
+        for(int i = 1; i < numEvents; i++){
+            Event currentEvent = events[i];
+            int previousEvent = i - 1;
+
+            while(previousEvent >= 0 &&
+                    events[previousEvent].getLocation().getBuildingName().compareTo(currentEvent.getLocation().getBuildingName()) > 0){
+                events[previousEvent + 1] = events[previousEvent];
+                previousEvent -= 1;
+            }
+            events[previousEvent + 1] = currentEvent;
+        }
+    }
 
     /**
      * Sorts and prints the array by department.
@@ -125,5 +155,5 @@ public class EventCalendar {
             events[previousEvent + 1] = currentEvent;
         }
         print();
-    } //ordered by department
+    }
 }
