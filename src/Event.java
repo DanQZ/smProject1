@@ -1,6 +1,6 @@
 /**
- * Event object class used to construct an event object.
- * @ Kimberly Donnarumma
+ * Define the abstract data type Event.
+ * @ KimberlyDonnarumma
  */
 public class Event implements Comparable<Event>{
     private Date date;
@@ -30,18 +30,34 @@ public class Event implements Comparable<Event>{
         this.duration = duration;
     }
 
+    /**
+     * Getter method.
+     * @return Date of the Event.
+     */
     public Date getDate(){
         return date;
     }
 
+    /**
+     * Getter method.
+     * @return Start time of the Event.
+     */
     public Timeslot getStartTime(){
         return startTime;
     }
 
+    /**
+     * Getter method.
+     * @return Location of the Event.
+     */
     public Location getLocation(){
         return location;
     }
 
+    /**
+     * Getter method.
+     * @return Contact of the Event.
+     */
     public Contact getContact(){
         return contact;
     }
@@ -61,7 +77,7 @@ public class Event implements Comparable<Event>{
     public boolean equals(Object obj){
         if(obj instanceof Event){
             Event event = (Event) obj;
-            if(this.date.equals(event.date) &&
+            if(this.date.equals(event.getDate()) &&
                 this.startTime.equals(event.startTime) &&
                 this.location.equals(event.location)){
                 return true;
@@ -90,7 +106,7 @@ public class Event implements Comparable<Event>{
                 + location.getCampus()
                 + ") [Contact: "
                 + contact.getDepartment().getFullName()
-                + ","
+                + ", "
                 + contact.toString()
                 + "]";
 
@@ -99,7 +115,7 @@ public class Event implements Comparable<Event>{
     //[Event Date: 10/21/2023] [Start: 2:00pm] [End: 3:00pm] @HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
 
     /**
-     * Private helper method to get the end time of the event.
+     * Private helper method to calculate the end time of the event.
      * @return End time of the event in the form of a string.
      */
     private String getEndTime(){

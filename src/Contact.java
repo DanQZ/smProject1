@@ -1,6 +1,6 @@
 /**
- * Contact object class used to construct a contact object.
- * @Kimberly Donnarumma
+ * Define the abstract data type Contact.
+ * @KimberlyDonnarumma
  */
 public class Contact {
     private Department department;
@@ -21,6 +21,10 @@ public class Contact {
         this.email = email;
     }
 
+    /**
+     * Getter method.
+     * @return Department of the Contact.
+     */
     public Department getDepartment(){
         return department;
     }

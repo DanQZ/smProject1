@@ -1,3 +1,7 @@
+/**
+ * Define the abstract data type Date.
+ * @KimberlyDonnarumma,
+ */
 public class Date implements Comparable<Date>{
     private int year;
     private int month;
@@ -11,24 +15,54 @@ public class Date implements Comparable<Date>{
     public static final int CENTENNIAL = 100;
     public static final int QUARTERCENTENNIAL = 400;
 
+    public static final int JANUARY = 1;
+    public static final int FEBRUARY = 2;
+    public static final int MARCH = 3;
+    public static final int APRIL = 4;
+    public static final int MAY = 5;
+    public static final int JUNE = 6;
+    public static final int JULY = 7;
+    public static final int AUGUST = 8;
+    public static final int SEPTEMBER = 9;
+    public static final int OCTOBER = 10;
+    public static final int NOVEMBER = 11;
+    public static final int DECEMBER = 12;
+
+    /**
+     * Default constructor.
+     */
     public Date(){};
 
+    /**
+     * Parameterized constructor with 3 parameters.
+     * @param year
+     * @param month
+     * @param day
+     */
     public Date(int year, int month, int day){
         this.year = year;
         this.month = month;
         this.day = day;
     }
 
+    /**
+     * Testbed.
+     * @param args
+     */
     public static void main(String[] args){
         Date test = new Date(2000, 4, 7);
         System.out.println("Is this date valid: " + test.isValid());
     }
 
+    /**
+     * Checks if this date is a valid date or not.
+     * @return true if date is valid, false otherwise.
+     */
     public boolean isValid(){
-        if(this.month == 1 || this.month == 3 ||
-            this.month == 5 || this.month == 7 ||
-            this.month == 8 || this.month == 10 ||
-            this.month == 12){
+        if(this.month == JANUARY || this.month == MARCH ||
+            this.month == MAY || this.month == JULY ||
+            this.month == AUGUST || this.month == OCTOBER ||
+            this.month == DECEMBER){
             if(this.day <= JMMJAOD && this.day > 0){
                 return true;
             }
@@ -37,8 +71,8 @@ public class Date implements Comparable<Date>{
             }
 
         }
-        else if(this.month == 4 || this.month == 6 ||
-            this.month == 9 || this.month == 11){
+        else if(this.month == APRIL || this.month == JUNE ||
+            this.month == SEPTEMBER || this.month == NOVEMBER){
             if(this.day <= AJSN && this.day > 0){
                 return true;
             }
@@ -46,7 +80,7 @@ public class Date implements Comparable<Date>{
                 return false;
             }
         }
-        else if(this.month == 2){
+        else if(this.month == FEBRUARY){
             if(isLeap(this.year)){
                 if(this.day <= FL && this.day > 0){
                     return true;
@@ -68,8 +102,9 @@ public class Date implements Comparable<Date>{
     }
 
     /**
+     * Checks if a year is a leap year.
      * @param year
-     * @return True if given year is a leap year, false otherwise.
+     * @return true if given year is a leap year, false otherwise.
      */
     private boolean isLeap(int year){
         if(year % QUADRENNIAL == 0) {
@@ -128,5 +163,18 @@ public class Date implements Comparable<Date>{
         dateString += year;
 
         return dateString;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Date){
+            Date date = (Date) obj;
+            if(this.year == date.year &&
+                    this.month == date.month &&
+                    this.day == date.day) {
+                return true;
+            }
+        }
+        return false;
     }
 }

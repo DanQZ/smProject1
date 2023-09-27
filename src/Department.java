@@ -1,3 +1,7 @@
+/**
+ * Enum class to define the abstract data type Department.
+ * @
+ */
 public enum Department {
     CS("Computer Science"),
     ITI("Information Technology and Informatics"),
@@ -11,6 +15,10 @@ public enum Department {
         this.fullName = fullName;
     }
 
+    /**
+     * Getter method.
+     * @return Full name of the department.
+     */
     public String getFullName(){
         return fullName;
     }
