@@ -102,7 +102,7 @@ public class Event implements Comparable<Event>{
                 + startTime.getMinuteSecondDigit()
                 + "][" + getEndTime() + "] "
                 + location.getRoomNumber() + " ("
-                + location.getBuildingName()
+                + location.getBuildingName() + ", "
                 + location.getCampus() + ") [Contact: "
                 + contact.getDepartment().getFullName()
                 + ", " + contact.toString() + "]";
