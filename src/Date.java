@@ -129,6 +129,11 @@ public class Date implements Comparable<Date>{
         return false;
     }
 
+    /**
+     * Determines if the date is in the past or if it's too far in the future.
+     * @return -1 if it's in the past, 1 if it's over 6 months in the future,
+     * 0 if neither.
+     */
     public int pastOrTooFar(){
         Date currentDate = new Date();
         int pastOrFuture = this.compareTo(currentDate);
@@ -137,24 +142,19 @@ public class Date implements Comparable<Date>{
             return -1;
         }
         else {
-            int month = currentDate.month;
-            int year = currentDate.year;
-            month += 6;
-            if(month > 12){
-                year++;
-                month -= 12;
-            }
-            if(this.year > year){
+            int maxMonth = currentDate.month + currentDate.year * 12;
+            maxMonth += 6;
+
+            int eventMonth = this.month + this.year * 12;
+            if(maxMonth < eventMonth){
                 return 1;
             }
-            if(this.month > month){
-                return 1;
-            }
-            else if(this.month == month){
-                if(this.day > currentDate.day){
+            else if(maxMonth == eventMonth){
+                if(currentDate.day < this.day){
                     return 1;
                 }
             }
+
         }
         return 0;
     }
