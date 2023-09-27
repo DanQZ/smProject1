@@ -36,7 +36,7 @@ public class Date implements Comparable<Date>{
      */
     public Date(){
         this.year = CALENDAR.get(Calendar.YEAR);
-        this.month = CALENDAR.get(Calendar.MONTH);
+        this.month = CALENDAR.get(Calendar.MONTH) + 1;
         this.day = CALENDAR.get(Calendar.DAY_OF_MONTH);
     }
 
@@ -57,8 +57,8 @@ public class Date implements Comparable<Date>{
      * @param args
      */
     public static void main(String[] args){
-        Date test = new Date(2000, 4, 7);
-        System.out.println("Is this date valid: " + test.isValid());
+        Date test = new Date();
+        System.out.println("Year: " + test.year + " Month: " + test.month + " Day: " + test.day);
     }
 
     /**
@@ -142,10 +142,10 @@ public class Date implements Comparable<Date>{
             return -1;
         }
         else {
-            int maxMonth = currentDate.month + currentDate.year * 12;
+            int maxMonth = currentDate.month + (currentDate.year * 12);
             maxMonth += 6;
 
-            int eventMonth = this.month + this.year * 12;
+            int eventMonth = this.month + (this.year * 12);
             if(maxMonth < eventMonth){
                 return 1;
             }
@@ -154,7 +154,6 @@ public class Date implements Comparable<Date>{
                     return 1;
                 }
             }
-
         }
         return 0;
     }
