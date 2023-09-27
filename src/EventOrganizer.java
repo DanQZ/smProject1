@@ -36,18 +36,27 @@ public class EventOrganizer {
         System.out.println("Event Organizer Running...");
         Scanner scanner = new Scanner(System.in);
         String newInput = "";
-        boolean runningOrganizer = true;
         curCalendar = new EventCalendar();
-        while(runningOrganizer){
+        while(true){
             newInput = scanner.nextLine();
-            parseAndRunInput(newInput);
+            boolean continueRunning = parseAndRunInput(newInput);
+            if(!continueRunning){
+                break;
+            }
         }
+        System.out.println("Event Organizer terminated.");
         scanner.close();
     }
 
-    void parseAndRunInput(String newInput){
+    boolean parseAndRunInput(String newInput){
+
        //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
+
+        if(tokens[0].equals("Q")){
+            return false;
+        }
+
         int i = 0;
         for (String checkedToken:
                 tokens) {
@@ -65,7 +74,7 @@ public class EventOrganizer {
         */
         if(!commandIsValid(tokens[0])){
             System.out.println(tokens[0] + " is an invalid command!");
-            return;
+            return true;
         }
 
         runCommand(tokens);
@@ -73,6 +82,8 @@ public class EventOrganizer {
         if(tokens[6] != null){
             newDuration = Integer.parseInt(tokens[6]);
         }
+
+        return true;
     }
     private boolean runCommand(String[] tokens){
         boolean ran = false;
@@ -97,8 +108,6 @@ public class EventOrganizer {
                 break;
             case "PD": // display sorted by department
                 displayEventsSorted("department");
-                break;
-            case "Q": // quit
                 break;
         }
         return ran;
@@ -184,15 +193,6 @@ public class EventOrganizer {
     }
 
     private boolean newEventIsValid(Event newEvent){
-        if(curCalendar.contains(newEvent)){
-            System.out.println("The event is already on the calendar.");
-            return false;
-        }
-        if(newEvent.getStartTime() == null){
-            String dateString = newEvent.getDate().toString();
-            System.out.println("Invalid time slot!");
-            return false;
-        }
         if(!newEvent.getDate().isValid()){
             String dateString = newEvent.getDate().toString();
             System.out.println(dateString + ": Invalid calendar date!");
@@ -206,6 +206,19 @@ public class EventOrganizer {
         if(newEvent.getDate().pastOrTooFar() == 1){
             String dateString = newEvent.getDate().toString();
             System.out.println(dateString + ": Event date must be within 6 months!");
+            return false;
+        }
+        if(newEvent.getStartTime() == null){
+            String dateString = newEvent.getDate().toString();
+            System.out.println("Invalid time slot!");
+            return false;
+        }
+        if(newEvent.getLocation() == null){
+            System.out.println("Invalid location!");
+            return false;
+        }
+        if(curCalendar.contains(newEvent)){
+            System.out.println("The event is already on the calendar.");
             return false;
         }
         return true;
@@ -324,7 +337,6 @@ public class EventOrganizer {
         Location newLocation = Location.AB2225;
         switch (formattedArg){
             default:
-                System.out.println("invalid location!");
                 return null;
             case "HLL114":
                 newLocation = Location.HLL114;
