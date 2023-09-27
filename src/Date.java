@@ -130,7 +130,33 @@ public class Date implements Comparable<Date>{
     }
 
     public int pastOrTooFar(){
-        if(this.compareTo(CALENDAR.get))
+        Date currentDate = new Date();
+        int pastOrFuture = this.compareTo(currentDate);
+
+        if(pastOrFuture == -1){
+            return -1;
+        }
+        else {
+            int month = currentDate.month;
+            int year = currentDate.year;
+            month += 6;
+            if(month > 12){
+                year++;
+                month -= 12;
+            }
+            if(this.year > year){
+                return 1;
+            }
+            if(this.month > month){
+                return 1;
+            }
+            else if(this.month == month){
+                if(this.day > currentDate.day){
+                    return 1;
+                }
+            }
+        }
+        return 0;
     }
 
     @Override
