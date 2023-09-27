@@ -45,14 +45,6 @@ public class EventOrganizer {
         scanner.close();
     }
 
-    private String commandToken;
-    private String dateToken;
-    private String timeslotToken;
-    private String locationToken;
-    private String departmentToken;
-    private String emailToken;
-    private String durationMinutesToken;
-
     void parseAndRunInput(String newInput){
        //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
@@ -62,6 +54,7 @@ public class EventOrganizer {
              //System.out.println("Token " + i + ": [" + checkedToken + "]");
             i++;
         }
+        /*
         commandToken = tokens[0];
         dateToken = tokens[1];
         timeslotToken = tokens[2];
@@ -69,28 +62,29 @@ public class EventOrganizer {
         departmentToken = tokens[4];
         emailToken = tokens[5];
         durationMinutesToken = tokens[6];
-        if(!commandIsValid(commandToken)){
-            System.out.println(commandToken + " is an invalid command!");
+        */
+        if(!commandIsValid(tokens[0])){
+            System.out.println(tokens[0] + " is an invalid command!");
             return;
         }
 
-        runCommand(commandToken);
+        runCommand(tokens);
         int newDuration = -1;
-        if(durationMinutesToken != null){
-            newDuration = Integer.parseInt(durationMinutesToken);
+        if(tokens[6] != null){
+            newDuration = Integer.parseInt(tokens[6]);
         }
     }
-    private boolean runCommand(String command){
+    private boolean runCommand(String[] tokens){
         boolean ran = false;
 
-        switch (command){
+        switch (tokens[0]){
             default:
                 return false;
             case "A": // add
-                addEvent();
+                addEvent(tokens);
                 break;
             case "R": // cancel
-                removeEvent();
+                removeEvent(tokens);
                 break;
             case "P": // display in current order in array
                 displayEventsCurrentOrder();
@@ -110,13 +104,13 @@ public class EventOrganizer {
         return ran;
     }
 
-    private Event createEvent(){
-        Date newDate = parseAndCreateDate(dateToken);
-        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
-        Location newLocation = parseAndCreateLocation(locationToken);
-        Department newDepartment = parseAndCreateDepartment(departmentToken);
-        String newEmail = emailToken;
-        int newDuration = Integer.parseInt(durationMinutesToken);
+    private Event createEvent(String[] tokens){
+        Date newDate = parseAndCreateDate(tokens[1]);
+        Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);
+        Location newLocation = parseAndCreateLocation(tokens[3]);
+        Department newDepartment = parseAndCreateDepartment(tokens[4]);
+        String newEmail = tokens[5];
+        int newDuration = Integer.parseInt(tokens[6]);
 
         Contact newContact = new Contact(newDepartment, newEmail);
         Event newEvent = new Event(
@@ -129,10 +123,10 @@ public class EventOrganizer {
         return newEvent;
     }
 
-    private Event createTempEvent(){
-        Date newDate = parseAndCreateDate(dateToken);
-        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
-        Location newLocation = parseAndCreateLocation(locationToken);
+    private Event createTempEvent(String[] tokens){
+        Date newDate = parseAndCreateDate(tokens[1]);
+        Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);
+        Location newLocation = parseAndCreateLocation(tokens[3]);
         Department newDepartment = Department.CS;
         String newEmail = "cs@rutgers.edu";
         int newDuration = 30;
@@ -148,22 +142,9 @@ public class EventOrganizer {
         return tempEvent;
     }
 
-    private void addEvent(){
-        Date newDate = parseAndCreateDate(dateToken);
-        Timeslot newTimeslot = parseAndCreateTimeslot(timeslotToken);
-        Location newLocation = parseAndCreateLocation(locationToken);
-        Department newDepartment = parseAndCreateDepartment(departmentToken);
-        String newEmail = emailToken;
-        int newDuration = Integer.parseInt(durationMinutesToken);
+    private void addEvent(String[] tokens){
 
-        Contact newContact = new Contact(newDepartment, newEmail);
-        Event newEvent = new Event(
-            newDate,
-            newTimeslot,
-            newLocation,
-            newContact,
-            newDuration
-        );
+        Event newEvent = createEvent(tokens);
 
         boolean validEvent = newEventIsValid(newEvent);
         if(!validEvent){
@@ -177,14 +158,10 @@ public class EventOrganizer {
             System.out.println("The event is already on the calendar.");
             return;
         }
-        if(newTimeslot == null){
-            System.out.println("Invalid time slot!");
-            return;
-        }
     }
 
-    private void removeEvent(){
-        Event tempEvent = createTempEvent();
+    private void removeEvent(String[] tokens){
+        Event tempEvent = createTempEvent(tokens);
         curCalendar.remove(tempEvent);
     }
     private void displayEventsCurrentOrder(){
@@ -207,15 +184,30 @@ public class EventOrganizer {
     }
 
     private boolean newEventIsValid(Event newEvent){
-        /*
-        if(!newEvent.getContact().isValid()){
-            System.out.println("Invalid contact information!");
+        if(curCalendar.contains(newEvent)){
+            System.out.println("The event is already on the calendar.");
+            return false;
+        }
+        if(newEvent.getStartTime() == null){
+            String dateString = newEvent.getDate().toString();
+            System.out.println("Invalid time slot!");
             return false;
         }
         if(!newEvent.getDate().isValid()){
+            String dateString = newEvent.getDate().toString();
+            System.out.println(dateString + ": Invalid calendar date!");
+            return false;
         }
-        return true;
-        */
+        if(newEvent.getDate().pastOrTooFar() == -1){
+            String dateString = newEvent.getDate().toString();
+            System.out.println(dateString + ": Event date must be a future date!");
+            return false;
+        }
+        if(newEvent.getDate().pastOrTooFar() == 1){
+            String dateString = newEvent.getDate().toString();
+            System.out.println(dateString + ": Event date must be within 6 months!");
+            return false;
+        }
         return true;
     }
 
@@ -309,7 +301,7 @@ public class EventOrganizer {
         String timeslotLower = timeslotArg.toLowerCase();
         switch (timeslotLower){
             default:
-                System.out.println("invalid timeslot");
+                //System.out.println("invalid timeslot");
                 return null;
             case "morning":
                 break;
