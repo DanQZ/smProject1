@@ -1,5 +1,5 @@
 /**
- * Enum class to define the abstract data type Department.
+ * Define the abstract data type Department.
  * @
  */
 public enum Department {

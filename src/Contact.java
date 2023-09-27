@@ -6,6 +6,8 @@ public class Contact {
     private Department department;
     private String email;
 
+    private static final String validEmail = "@rutgers.edu";
+
     /**
      * Default constructor.
      */
@@ -40,7 +42,7 @@ public class Contact {
             this.department.equals(Department.MATH) ||
             this.department.equals(Department.BAIT)){
 
-            if(this.email.equals("@rutgers.edu")){
+            if(this.email.equals(validEmail)){
                 return true;
             }
             else{
@@ -54,8 +56,6 @@ public class Contact {
 
     @Override
     public String toString(){
-        String contactString = "";
-        contactString += department + email;
-        return contactString;
+        return email;
     }
 }

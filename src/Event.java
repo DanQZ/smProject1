@@ -70,6 +70,12 @@ public class Event implements Comparable<Event>{
         if(this.date.compareTo(event.date) < 0){
             return -1;
         }
+        if(this.startTime.getHour() < event.startTime.getHour()){
+            return -1;
+        }
+        if(this.startTime.getHour() > event.startTime.getHour()){
+            return 1;
+        }
         return 0;
     }
 
@@ -89,27 +95,17 @@ public class Event implements Comparable<Event>{
     @Override
     public String toString() {
         String eventOutput = "";
-
         eventOutput += "[Event Date: "
-                + date.toString()
-                + "][Start: "
-                + startTime.getHour()
-                + ":"
+                + date.toString() + "][Start: "
+                + startTime.getHour() + ":"
                 + startTime.getMinuteFirstDigit()
                 + startTime.getMinuteSecondDigit()
-                + "]["
-                + getEndTime()
-                + "] "
-                + location.getRoomNumber()
-                + " ("
+                + "][" + getEndTime() + "] "
+                + location.getRoomNumber() + " ("
                 + location.getBuildingName()
-                + location.getCampus()
-                + ") [Contact: "
+                + location.getCampus() + ") [Contact: "
                 + contact.getDepartment().getFullName()
-                + ", "
-                + contact.toString()
-                + "]";
-
+                + ", " + contact.toString() + "]";
         return eventOutput;
     }
     //[Event Date: 10/21/2023] [Start: 2:00pm] [End: 3:00pm] @HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]

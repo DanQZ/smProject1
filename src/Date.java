@@ -1,3 +1,4 @@
+import java.util.Calendar;
 /**
  * Define the abstract data type Date.
  * @KimberlyDonnarumma,
@@ -28,10 +29,16 @@ public class Date implements Comparable<Date>{
     public static final int NOVEMBER = 11;
     public static final int DECEMBER = 12;
 
+    public Calendar CALENDAR = Calendar.getInstance();
+
     /**
      * Default constructor.
      */
-    public Date(){};
+    public Date(){
+        this.year = CALENDAR.get(Calendar.YEAR);
+        this.month = CALENDAR.get(Calendar.MONTH);
+        this.day = CALENDAR.get(Calendar.DAY_OF_MONTH);
+    }
 
     /**
      * Parameterized constructor with 3 parameters.
@@ -69,7 +76,6 @@ public class Date implements Comparable<Date>{
             else{
                 return false;
             }
-
         }
         else if(this.month == APRIL || this.month == JUNE ||
             this.month == SEPTEMBER || this.month == NOVEMBER){
@@ -121,6 +127,10 @@ public class Date implements Comparable<Date>{
             }
         }
         return false;
+    }
+
+    public int pastOrTooFar(){
+        if(this.compareTo(CALENDAR.get))
     }
 
     @Override

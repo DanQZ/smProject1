@@ -1,3 +1,7 @@
+/**
+ * Define the abstract data type Timeslot.
+ * @
+ */
 public enum Timeslot {
     MORNING(10, 3, 0),
     AFTERNOON(14, 0, 0),
@@ -13,14 +17,26 @@ public enum Timeslot {
         this.minuteSecondDigit = minuteSecondDigit;
     }
 
+    /**
+     * Getter method.
+     * @return Hour of the timeslot.
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     * Getter method.
+     * @return First digit of the minutes of the timeslot.
+     */
     public int getMinuteFirstDigit() {
         return minuteFirstDigit;
     }
 
+    /**
+     * Getter method.
+     * @return Second digit of the minutes of the timeslot.
+     */
     public int getMinuteSecondDigit(){ return minuteSecondDigit; }
 }
 
