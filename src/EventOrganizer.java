@@ -6,32 +6,11 @@
 import java.sql.Time;
 import java.util.Scanner;
 public class EventOrganizer {
-    /*
-        R command, to cancel an event and remove the specified event from the calendar, for example,
-            R 12/22/2023 MORNING HLL114
-            You must check if the date is valid. Refer to the sample output for the messages to display.
-        • P command, to display the event calendar on the console/terminal, with the current order in the array.
-        • PE command, to display the event calendar on the console/terminal, sorted by the event date and timeslot of the
-            timeslot. That is, if two events have the same date, display the events in the order of the timeslots.
-        • PC command, to display the event calendar on the console/terminal, sorted by campus and building/room. That
-            is, if two events are held on the same campus, display the events in the order of building/room number.
-        • PD command, to display the event calendar on the console/terminal, sorted by the department in the contact. If
-            two events have the same hosting department, the order doesn’t matter.
-        • Q command, to stop the execution of the software and display " Event Organizer terminated."
-     */
-
-    /*
-        A 2/29/2024 afternoon HLL114 CS cs@rutgers.edu 60
-        The above command line starts with the A command, followed by a future event date, timeslot, location, contact
-        and duration in minutes. The date shall be given in mm/dd/yyyy format, and the date should be within 6 months
-        from today’s date. All the campus locations provide three timeslots daily: 10:30am, 2:00pm and 6:30pm. A
-        timeslot is entered as either “morning”, “afternoon”, or “evening”. A location is entered in acronym listed in page
-        #1, for example, HIL114. A contact of an event includes the hosting department and an email address. A
-        department name is entered in acronym listed in page #1, for example, CS. The email address must have the
-        domain name @rutgers.edu. The event duration is a positive integer representing the number of minutes. The
-        duration is at least 30 minutes and at most 120 minutes.
-     */
     EventCalendar curCalendar;
+
+    /**
+     Runs a while loop until the user inputs Q as the command to quit
+     */
     public void run(){
         System.out.println("Event Organizer Running...");
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +27,11 @@ public class EventOrganizer {
         scanner.close();
     }
 
+    /**
+     Parses input into multiple tokens separated by spaces, and then attempts to run the command and arguments
+     @param newInput takes in the whole command string
+     @return false if Q command given, indicating to quit running this program
+     */
     boolean parseAndRunInput(String newInput){
 
        //System.out.println("input: " + newInput);
@@ -86,10 +70,9 @@ public class EventOrganizer {
         return true;
     }
     /**
-     Remove the given student from the list.
-     Does nothing if the student is not in the list.
+     Runs command if token is valid
      @param tokens takes an array of each string token.
-     @return true if the command was run otherwise false.
+     @return true if the command was run otherwise returns false.
      */
     private boolean runCommand(String[] tokens){
         boolean ran = false;
@@ -144,6 +127,11 @@ public class EventOrganizer {
         return newEvent;
     }
 
+    /**
+     Creates an event with identical time and location for find-and-delete purpose, where all other attributes are defaulted to an arbitrary valid attribute
+     @param tokens takes an array of each string token.
+     @return the created event
+     */
     private Event createTempEvent(String[] tokens){
         Date newDate = parseAndCreateDate(tokens[1]);
         Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);
@@ -163,6 +151,11 @@ public class EventOrganizer {
         return tempEvent;
     }
 
+
+    /**
+     Adds an event to the current calendar with the command tokens, and prints out the result
+     @param tokens takes an array of each string token.
+     */
     private void addEvent(String[] tokens){
 
         Event newEvent = createEvent(tokens);
@@ -181,6 +174,11 @@ public class EventOrganizer {
         }
     }
 
+
+    /**
+     Removes an event at the location and time if it exists, and prints out the result
+     @param tokens takes an array of each string token.
+     */
     private void removeEvent(String[] tokens){
         Event tempEvent = createTempEvent(tokens);
         curCalendar.remove(tempEvent);
@@ -203,7 +201,11 @@ public class EventOrganizer {
                 break;
         }
     }
-
+    /**
+     Helper method to check if an event is valid before adding it to the calendar
+     @param newEvent takes the newly created event object
+     @return true if valid, false if invalid
+     */
     private boolean newEventIsValid(Event newEvent){
         if(!newEvent.getDate().isValid()){
             String dateString = newEvent.getDate().toString();
@@ -233,9 +235,17 @@ public class EventOrganizer {
             System.out.println("The event is already on the calendar.");
             return false;
         }
+        if(!newEvent.getContact().isValid()){
+            System.out.println("Invalid contact information!");
+        }
         return true;
     }
 
+    /**
+     Helper method to check if the command (token[0]) is valid
+     @param command takes in the first token in the entire command
+     @return true if valid, false if invalid
+     */
     private boolean commandIsValid(String command){
         if(command == null){
             return false;
@@ -261,7 +271,12 @@ public class EventOrganizer {
         return true;
     }
 
-    // splits up a string, splitting based on the separator character
+    /**
+     Splits up a string into tokens, splitting based on the separator character, and returns those tokens
+     @param inputString takes in the entire command string
+     @param separator takes in what separates the tokens in the command
+     @return a string array of each token in their order in inputString
+     */
     String[] tokenize(String inputString, String separator) {
         String[] output = new String[10];
         int curTokenIndex = 0;
@@ -286,13 +301,17 @@ public class EventOrganizer {
         return output;
     }
 
-    // returns null if invalid date, otherwise returns new Date
-    private Date parseAndCreateDate(String dateInput){
-        if(dateInput == null){
+    /**
+     Creates and returns a new Date
+     @param dateArg takes in the date token
+     @return null if invalid date, otherwise returns newly created Date
+     */
+    private Date parseAndCreateDate(String dateArg){
+        if(dateArg == null){
             System.out.println("dateArg is null");
             return null;
         }
-        String[] dateTokens = tokenize(dateInput, "/");
+        String[] dateTokens = tokenize(dateArg, "/");
         /*
         for(int i = 0; i < 5; i++){
             System.out.println("date token " + i + ": " + dateTokens[i]);
@@ -316,7 +335,12 @@ public class EventOrganizer {
 
         return newDate;
     }
-    //returns null if invalid
+
+    /**
+     Creates and returns a new Timeslot
+     @param timeslotArg takes in the timeslot token
+     @return null if invalid date, otherwise returns newly created Timeslot
+     */
     private Timeslot parseAndCreateTimeslot(String timeslotArg){
         if(timeslotArg == null){
             return null;
@@ -340,6 +364,11 @@ public class EventOrganizer {
         return newSlot;
     }
 
+    /**
+     Creates and returns a new Location
+     @param locationArg takes in the location token
+     @return null if invalid date, otherwise returns newly created Location
+     */
     private Location parseAndCreateLocation(String locationArg){
         if(locationArg == null){
             System.out.println("null locationArg");
@@ -372,6 +401,11 @@ public class EventOrganizer {
         return newLocation;
     }
 
+    /**
+     Creates and returns a new Department
+     @param departmentArg takes in the department token
+     @return null if invalid date, otherwise returns newly created Department
+     */
     private Department parseAndCreateDepartment(String departmentArg) {
         if(departmentArg == null){
             return null;
