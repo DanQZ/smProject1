@@ -42,7 +42,7 @@ public class Contact {
             this.department.equals(Department.MATH) ||
             this.department.equals(Department.BAIT)){
 
-            if(this.email.equals(validEmail)){
+            if(this.email.contains(validEmail)){
                 return true;
             }
             else{
@@ -53,6 +53,7 @@ public class Contact {
             return false;
         }
     }
+
 
     @Override
     public String toString(){

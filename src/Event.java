@@ -97,10 +97,12 @@ public class Event implements Comparable<Event>{
         String eventOutput = "";
         eventOutput += "[Event Date: "
                 + date.toString() + "][Start: "
-                + startTime.getHour() + ":"
+                + startTime.getHourStandard() + ":"
                 + startTime.getMinuteFirstDigit()
                 + startTime.getMinuteSecondDigit()
-                + "][" + getEndTime() + "] "
+                + amOrPm(startTime.getHour())
+                + "][" + getEndTime() +
+                amOrPm(getEndHour()) +"] "
                 + location.getRoomNumber() + " ("
                 + location.getBuildingName() + ", "
                 + location.getCampus() + ") [Contact: "
@@ -110,6 +112,13 @@ public class Event implements Comparable<Event>{
     }
     //[Event Date: 10/21/2023] [Start: 2:00pm] [End: 3:00pm] @HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
 
+    private String amOrPm(int hour){
+        if(hour >= 12){
+            return "pm";
+        }
+
+        return "am";
+    }
     /**
      * Private helper method to calculate the end time of the event.
      * @return End time of the event in the form of a string.
@@ -119,26 +128,40 @@ public class Event implements Comparable<Event>{
         int endHour = startTime.getHour();
         int endMinute = (startTime.getMinuteFirstDigit() * 10) + startTime.getMinuteSecondDigit();
         String endtime = "";
-
         while(changingDuration >= 60) {
             endHour++;
             changingDuration -= 60;
         }
+        endMinute += changingDuration;
+        while(endMinute >= 60){
+            endHour++;
+            endMinute -= 60;
+        }
+        int endMinuteFirstDigit;
+        int endMinuteSecondDigit;
+        endMinuteFirstDigit = endMinute / 10;
+        endMinuteSecondDigit = endMinute % 10;
+        if(endHour > 12){
+            endHour = endHour - 12;
+        }
+        endtime += endHour + ":" + endMinuteFirstDigit + endMinuteSecondDigit;
+        return endtime;
+    }
 
+    private int getEndHour(){
+        int changingDuration = duration;
+        int endHour = startTime.getHour();
+        int endMinute = (startTime.getMinuteFirstDigit() * 10) + startTime.getMinuteSecondDigit();
+        while(changingDuration >= 60) {
+            endHour++;
+            changingDuration -= 60;
+        }
         endMinute += changingDuration;
         while(endMinute >= 60){
             endHour++;
             endMinute -= 60;
         }
 
-        int endMinuteFirstDigit;
-        int endMinuteSecondDigit;
-
-        endMinuteFirstDigit = endMinute / 10;
-        endMinuteSecondDigit = endMinute % 10;
-
-        endtime += endHour + ":" + endMinuteFirstDigit + endMinuteSecondDigit;
-
-        return endtime;
+        return endHour;
     }
 }

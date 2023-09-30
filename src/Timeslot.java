@@ -38,5 +38,17 @@ public enum Timeslot {
      * @return Second digit of the minutes of the timeslot.
      */
     public int getMinuteSecondDigit(){ return minuteSecondDigit; }
+
+    /**
+     * Method to return hour in standard time.
+     * @return Hour in standard time.
+     */
+    public int getHourStandard(){
+        if(hour > 12){
+            return hour - 12;
+        }
+
+        return hour;
+    }
 }
 

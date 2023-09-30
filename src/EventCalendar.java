@@ -111,6 +111,7 @@ public class EventCalendar {
         if(calendarIsEmpty()){
             return;
         }
+        System.out.println("* Event calendar by event date and start time *");
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
@@ -150,6 +151,7 @@ public class EventCalendar {
         if(calendarIsEmpty()){
             return;
         }
+        System.out.println("* Event calendar by campus and building *");
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
@@ -192,6 +194,7 @@ public class EventCalendar {
         if(calendarIsEmpty()){
             return;
         }
+        System.out.println("* Event calendar by department *");
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
