@@ -62,6 +62,8 @@ public class Event implements Comparable<Event>{
         return contact;
     }
 
+    public int getDuration() { return duration; };
+
     @Override
     public int compareTo(Event event){
         if(this.date.compareTo(event.date) > 0){
