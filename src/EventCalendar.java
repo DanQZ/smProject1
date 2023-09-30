@@ -93,6 +93,11 @@ public class EventCalendar {
         if(calendarIsEmpty()){
             return;
         }
+        System.out.println("* Event calendar *");
+        printDefault();
+    } //print the array as is
+
+    private void printDefault(){
         int i = 0;
         for (Event checkedEvent: events) {
             if(checkedEvent != null){
@@ -101,7 +106,7 @@ public class EventCalendar {
             i++;
         }
         System.out.println("* end of event calendar *");
-    } //print the array as is
+    }
 
     /**
      * Sorts and prints the array by date.
@@ -124,7 +129,7 @@ public class EventCalendar {
             events[previousEvent + 1] = currentEvent;
         }
         organizeTimeslot();
-        print();
+        printDefault();
     }
 
     /**
@@ -164,7 +169,7 @@ public class EventCalendar {
             events[previousEvent + 1] = currentEvent;
         }
         organizeBuilding();
-        print();
+        printDefault();
     }
 
     /**
@@ -206,6 +211,6 @@ public class EventCalendar {
             }
             events[previousEvent + 1] = currentEvent;
         }
-        print();
+        printDefault();
     }
 }
