@@ -37,10 +37,6 @@ public class EventOrganizer {
        //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
 
-        if(tokens[0].equals("Q")){
-            return false;
-        }
-
         int i = 0;
         for (String checkedToken:
                 tokens) {
@@ -59,6 +55,10 @@ public class EventOrganizer {
         if(!commandIsValid(tokens[0])){
             System.out.println(tokens[0] + " is an invalid command!");
             return true;
+        }
+
+        if(tokens[0].equals("Q")){
+            return false;
         }
 
         runCommand(tokens);
@@ -415,7 +415,6 @@ public class EventOrganizer {
         Department newDepartment = Department.CS;
         switch (formattedArg) {
             default:
-                System.out.println("invalid department");
                 return null;
             case "CS":
                 newDepartment = Department.CS;
