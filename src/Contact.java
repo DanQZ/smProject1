@@ -36,6 +36,9 @@ public class Contact {
      * @return true if the department name and email are valid, false otherwise.
      */
     public boolean isValid(){
+        if(this.department == null || this.email == null){
+            return false;
+        }
         if(this.department.equals(Department.CS) ||
             this.department.equals(Department.EE) ||
             this.department.equals(Department.ITI) ||
