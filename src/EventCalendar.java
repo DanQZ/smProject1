@@ -85,8 +85,8 @@ public class EventCalendar {
     public void print() {
         if(numEvents == 0){
             System.out.println("Event calendar is empty!");
+            return;
         }
-
         int i = 0;
         for (Event checkedEvent: events) {
             if(checkedEvent != null){
@@ -94,6 +94,7 @@ public class EventCalendar {
             }
             i++;
         }
+        System.out.println("* end of event calendar *");
     } //print the array as is
 
     /**
@@ -101,6 +102,8 @@ public class EventCalendar {
      */
     public void printByDate() {
         //Sort the array by date; Still needs to be sorted by timeslot
+
+
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
