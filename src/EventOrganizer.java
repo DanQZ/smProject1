@@ -85,6 +85,12 @@ public class EventOrganizer {
 
         return true;
     }
+    /**
+     Remove the given student from the list.
+     Does nothing if the student is not in the list.
+     @param tokens takes an array of each string token.
+     @return true if the command was run otherwise false.
+     */
     private boolean runCommand(String[] tokens){
         boolean ran = false;
 
@@ -113,6 +119,12 @@ public class EventOrganizer {
         return ran;
     }
 
+    /**
+     Creates an event using existing tokens
+     Does nothing if something in the command is invalid
+     @param tokens is a string array of each token
+     @return the created event.
+     */
     private Event createEvent(String[] tokens){
         Date newDate = parseAndCreateDate(tokens[1]);
         Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);

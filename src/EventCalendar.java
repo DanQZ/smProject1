@@ -82,9 +82,15 @@ public class EventCalendar {
         }
         return true;
     }
-    public void print() {
+    public boolean calendarIsEmpty(){
         if(numEvents == 0){
             System.out.println("Event calendar is empty!");
+            return true;
+        }
+        return false;
+    }
+    public void print() {
+        if(calendarIsEmpty()){
             return;
         }
         int i = 0;
@@ -102,8 +108,9 @@ public class EventCalendar {
      */
     public void printByDate() {
         //Sort the array by date; Still needs to be sorted by timeslot
-
-
+        if(calendarIsEmpty()){
+            return;
+        }
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
@@ -140,6 +147,9 @@ public class EventCalendar {
      * Sorts and prints the array by campus.
      */
     public void printByCampus() {
+        if(calendarIsEmpty()){
+            return;
+        }
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
@@ -159,6 +169,9 @@ public class EventCalendar {
      * Sorts the array by building.
      */
     private void organizeBuilding() {
+        if(calendarIsEmpty()){
+            return;
+        }
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
@@ -176,6 +189,9 @@ public class EventCalendar {
      * Sorts and prints the array by department.
      */
     public void printByDepartment(){
+        if(calendarIsEmpty()){
+            return;
+        }
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
