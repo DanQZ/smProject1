@@ -237,6 +237,7 @@ public class EventOrganizer {
         }
         if(!newEvent.getContact().isValid()){
             System.out.println("Invalid contact information!");
+            return false;
         }
         return true;
     }
