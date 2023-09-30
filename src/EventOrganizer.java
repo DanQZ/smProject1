@@ -176,12 +176,41 @@ public class EventOrganizer {
 
 
     /**
+     Checks if a date is valid and if not, returns why
+     @param dateArg takes a date
+     @return a string why it's not valid or if it is valid
+     */
+    private String checkValidDate(Date dateArg){
+        String dateString = dateArg.toString();
+        if(!dateArg.isValid()){
+            return dateString + ": Invalid calendar date!";
+        }
+        if(dateArg.pastOrTooFar() == 1){
+            return dateString + ": Event date must be within 6 months!";
+        }
+        if(dateArg.pastOrTooFar() == -1){
+            return dateString + ": Event date must be a future date!";
+        }
+        return "valid";
+    }
+    /**
      Removes an event at the location and time if it exists, and prints out the result
      @param tokens takes an array of each string token.
      */
     private void removeEvent(String[] tokens){
         Event tempEvent = createTempEvent(tokens);
-        curCalendar.remove(tempEvent);
+        String dateStatus =checkValidDate(tempEvent.getDate());
+        if(!dateStatus.equals("valid")){
+            System.out.println(dateStatus);
+            return;
+        }
+        boolean removed = curCalendar.remove(tempEvent);
+        if(removed){
+            System.out.println("Event has been removed from the calendar!");
+        }
+        else{
+            System.out.println("Cannot remove; event is not in the calendar!");
+        }
     }
     private void displayEventsCurrentOrder(){
         curCalendar.print();
@@ -225,6 +254,10 @@ public class EventOrganizer {
         if(newEvent.getStartTime() == null){
             String dateString = newEvent.getDate().toString();
             System.out.println("Invalid time slot!");
+            return false;
+        }
+        if(newEvent.getDuration() > 120 || newEvent.getDuration() < 30){
+            System.out.println("Event duration must be at least 30 minutes and at most 120 minutes");
             return false;
         }
         if(newEvent.getLocation() == null){

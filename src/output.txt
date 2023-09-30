@@ -1,3 +1,4 @@
+Event Organizer Running...
 a is an invalid command!
 r is an invalid command!
 p is an invalid command!
@@ -18,15 +19,13 @@ The event is already on the calendar.
 Invalid time slot!
 Event added to the calendar.
 Invalid location!
-Event added to the calendar.
-The event is already on the calendar.
-The event is already on the calendar.
-The event is already on the calendar.
-invalid department
-The event is already on the calendar.
-The event is already on the calendar.
-The event is already on the calendar.
-Event added to the calendar.
+Invalid contact information!
+Invalid contact information!
+Invalid contact information!
+Invalid contact information!
+Invalid contact information!
+Event duration must be at least 30 minutes and at most 120 minutes
+Event duration must be at least 30 minutes and at most 120 minutes
 Event added to the calendar.
 Event added to the calendar.
 Event added to the calendar.
@@ -43,106 +42,119 @@ Event added to the calendar.
 Event added to the calendar.
 Event added to the calendar.
 Event added to the calendar.
-[Event Date: 10/21/2023][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][14:30] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@gmail.com]
-[Event Date: 10/21/2023][Start: 10:30][11:00] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 11/1/2023][Start: 10:30][11:10] BE_AUD (Beck HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/31/2023][Start: 18:30][20:30] TIL232 (Tillett HallLivingston) [Contact: Mathematics, MATH@rutgers.edu]
-[Event Date: 1/15/2024][Start: 10:30][12:30] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][12:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/23/2023][Start: 18:30][19:30] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 2/23/2024][Start: 18:30][19:15] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 18:30][20:30] ARC103 (Allison Road ClassroomBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 3/3/2024][Start: 18:30][20:10] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
-[Event Date: 3/14/2024][Start: 10:30][12:30] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
-[Event Date: 1/31/2024][Start: 18:30][19:20] MU302 (Murray HallCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/7/2023][Start: 14:00][14:45] AB2225 (Academic BuildingCollege Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
-[Event Date: 11/25/2023][Start: 10:30][12:05] AB2225 (Academic BuildingCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/3/2023][Start: 18:30][19:50] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 1/8/2024][Start: 14:00][14:30] TIL232 (Tillett HallLivingston) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][11:20] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 11/8/2023][Start: 14:00][15:15] TIL232 (Tillett HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
 Event added to the calendar.
-[Event Date: 10/21/2023][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][14:30] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@gmail.com]
-[Event Date: 10/21/2023][Start: 10:30][11:00] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 11/1/2023][Start: 10:30][11:10] BE_AUD (Beck HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/31/2023][Start: 18:30][20:30] TIL232 (Tillett HallLivingston) [Contact: Mathematics, MATH@rutgers.edu]
-[Event Date: 1/15/2024][Start: 10:30][12:30] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 10/23/2023][Start: 18:30][19:30] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 2/23/2024][Start: 18:30][19:15] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 18:30][20:30] ARC103 (Allison Road ClassroomBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 3/3/2024][Start: 18:30][20:10] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
-[Event Date: 3/14/2024][Start: 10:30][12:30] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
-[Event Date: 1/31/2024][Start: 18:30][19:20] MU302 (Murray HallCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/7/2023][Start: 14:00][14:45] AB2225 (Academic BuildingCollege Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
-[Event Date: 11/25/2023][Start: 10:30][12:05] AB2225 (Academic BuildingCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/3/2023][Start: 18:30][19:50] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 1/8/2024][Start: 14:00][14:30] TIL232 (Tillett HallLivingston) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][11:20] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 11/8/2023][Start: 14:00][15:15] TIL232 (Tillett HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][12:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 10:30][11:00] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 11/1/2023][Start: 10:30][11:10] BE_AUD (Beck HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 11/25/2023][Start: 10:30][12:05] AB2225 (Academic BuildingCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][11:20] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][12:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 1/15/2024][Start: 10:30][12:30] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 3/14/2024][Start: 10:30][12:30] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][14:30] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@gmail.com]
-[Event Date: 11/8/2023][Start: 14:00][15:15] TIL232 (Tillett HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/7/2023][Start: 14:00][14:45] AB2225 (Academic BuildingCollege Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
-[Event Date: 1/8/2024][Start: 14:00][14:30] TIL232 (Tillett HallLivingston) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 2/29/2024][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/23/2023][Start: 18:30][19:30] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/3/2023][Start: 18:30][19:50] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/31/2023][Start: 18:30][20:30] TIL232 (Tillett HallLivingston) [Contact: Mathematics, MATH@rutgers.edu]
-[Event Date: 1/31/2024][Start: 18:30][19:20] MU302 (Murray HallCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 2/23/2024][Start: 18:30][19:15] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 18:30][20:30] ARC103 (Allison Road ClassroomBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 3/3/2024][Start: 18:30][20:10] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
-[Event Date: 11/25/2023][Start: 10:30][12:05] AB2225 (Academic BuildingCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][11:20] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 1/15/2024][Start: 10:30][12:30] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 12/7/2023][Start: 14:00][14:45] AB2225 (Academic BuildingCollege Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
-[Event Date: 10/21/2023][Start: 10:30][11:00] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][14:30] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@gmail.com]
-[Event Date: 10/23/2023][Start: 18:30][19:30] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 2/29/2024][Start: 18:30][20:30] ARC103 (Allison Road ClassroomBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 3/3/2024][Start: 18:30][20:10] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
-[Event Date: 11/1/2023][Start: 10:30][11:10] BE_AUD (Beck HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][12:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/23/2024][Start: 18:30][19:15] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 3/14/2024][Start: 10:30][12:30] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
-[Event Date: 12/3/2023][Start: 18:30][19:50] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 1/31/2024][Start: 18:30][19:20] MU302 (Murray HallCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 11/8/2023][Start: 14:00][15:15] TIL232 (Tillett HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 1/8/2024][Start: 14:00][14:30] TIL232 (Tillett HallLivingston) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 12/31/2023][Start: 18:30][20:30] TIL232 (Tillett HallLivingston) [Contact: Mathematics, MATH@rutgers.edu]
-[Event Date: 2/29/2024][Start: 18:30][20:30] ARC103 (Allison Road ClassroomBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][12:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/29/2024][Start: 14:00][15:00] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 2/23/2024][Start: 18:30][19:15] HLL114 (Hill CenterBusch) [Contact: Computer Science, cs@rutgers.edu]
-[Event Date: 11/1/2023][Start: 10:30][11:10] BE_AUD (Beck HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 3/14/2024][Start: 10:30][12:30] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
-[Event Date: 12/3/2023][Start: 18:30][19:50] MU302 (Murray HallCollege Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 11/8/2023][Start: 14:00][15:15] TIL232 (Tillett HallLivingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
-[Event Date: 12/7/2023][Start: 14:00][14:45] AB2225 (Academic BuildingCollege Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
-[Event Date: 10/21/2023][Start: 10:30][11:00] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 10/21/2023][Start: 14:00][14:30] ARC103 (Allison Road ClassroomBusch) [Contact: Electrical Engineering, ee@gmail.com]
-[Event Date: 1/8/2024][Start: 14:00][14:30] TIL232 (Tillett HallLivingston) [Contact: Electrical Engineering, ee@rutgers.edu]
-[Event Date: 12/15/2023][Start: 10:30][11:20] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 1/15/2024][Start: 10:30][12:30] AB2225 (Academic BuildingCollege Avenue) [Contact: Mathematics, math@rutgers.edu]
-[Event Date: 12/31/2023][Start: 18:30][20:30] TIL232 (Tillett HallLivingston) [Contact: Mathematics, MATH@rutgers.edu]
-[Event Date: 11/25/2023][Start: 10:30][12:05] AB2225 (Academic BuildingCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 10/23/2023][Start: 18:30][19:30] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
-[Event Date: 3/3/2024][Start: 18:30][20:10] ARC103 (Allison Road ClassroomBusch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
-[Event Date: 1/31/2024][Start: 18:30][19:20] MU302 (Murray HallCollege Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+* Event calendar *
+[Event Date: 10/21/2023][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/21/2023][Start: 10:30am][11:00am] ARC103 (Allison Road Classroom, Busch) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 11/1/2023][Start: 10:30am][11:10am] BE_AUD (Beck Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/31/2023][Start: 6:30pm][8:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Mathematics, MATH@rutgers.edu]
+[Event Date: 1/15/2024][Start: 10:30am][12:30pm] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][12:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/23/2023][Start: 6:30pm][7:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 2/23/2024][Start: 6:30pm][7:15pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 6:30pm][8:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 3/3/2024][Start: 6:30pm][8:10pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
+[Event Date: 3/14/2024][Start: 10:30am][12:30pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
+[Event Date: 1/31/2024][Start: 6:30pm][7:20pm] MU302 (Murray Hall, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/7/2023][Start: 2:00pm][2:45pm] AB2225 (Academic Building, College Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
+[Event Date: 11/25/2023][Start: 10:30am][12:05pm] AB2225 (Academic Building, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/3/2023][Start: 6:30pm][7:50pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 1/8/2024][Start: 2:00pm][2:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][11:20am] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 11/8/2023][Start: 2:00pm][3:15pm] TIL232 (Tillett Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+* end of event calendar *
+2/29/2023: Invalid calendar date!
+4/31/2023: Invalid calendar date!
+13/22/2023: Invalid calendar date!
+1/22/2023: Event date must be a future date!
+4/22/2024: Event date must be within 6 months!
+Event has been removed from the calendar!
+Cannot remove; event is not in the calendar!
+Event added to the calendar.
+* Event calendar *
+[Event Date: 10/21/2023][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/21/2023][Start: 10:30am][11:00am] ARC103 (Allison Road Classroom, Busch) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 11/1/2023][Start: 10:30am][11:10am] BE_AUD (Beck Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/31/2023][Start: 6:30pm][8:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Mathematics, MATH@rutgers.edu]
+[Event Date: 1/15/2024][Start: 10:30am][12:30pm] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 10/23/2023][Start: 6:30pm][7:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 2/23/2024][Start: 6:30pm][7:15pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 6:30pm][8:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 3/3/2024][Start: 6:30pm][8:10pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
+[Event Date: 3/14/2024][Start: 10:30am][12:30pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
+[Event Date: 1/31/2024][Start: 6:30pm][7:20pm] MU302 (Murray Hall, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/7/2023][Start: 2:00pm][2:45pm] AB2225 (Academic Building, College Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
+[Event Date: 11/25/2023][Start: 10:30am][12:05pm] AB2225 (Academic Building, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/3/2023][Start: 6:30pm][7:50pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 1/8/2024][Start: 2:00pm][2:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][11:20am] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 11/8/2023][Start: 2:00pm][3:15pm] TIL232 (Tillett Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][12:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+* end of event calendar *
+* Event calendar by event date and start time *
+[Event Date: 10/21/2023][Start: 10:30am][11:00am] ARC103 (Allison Road Classroom, Busch) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 11/1/2023][Start: 10:30am][11:10am] BE_AUD (Beck Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 11/25/2023][Start: 10:30am][12:05pm] AB2225 (Academic Building, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][11:20am] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][12:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 1/15/2024][Start: 10:30am][12:30pm] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 3/14/2024][Start: 10:30am][12:30pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
+[Event Date: 10/21/2023][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 11/8/2023][Start: 2:00pm][3:15pm] TIL232 (Tillett Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/7/2023][Start: 2:00pm][2:45pm] AB2225 (Academic Building, College Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
+[Event Date: 1/8/2024][Start: 2:00pm][2:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 2/29/2024][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/23/2023][Start: 6:30pm][7:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/3/2023][Start: 6:30pm][7:50pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/31/2023][Start: 6:30pm][8:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Mathematics, MATH@rutgers.edu]
+[Event Date: 1/31/2024][Start: 6:30pm][7:20pm] MU302 (Murray Hall, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 2/23/2024][Start: 6:30pm][7:15pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 6:30pm][8:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 3/3/2024][Start: 6:30pm][8:10pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
+* end of event calendar *
+* Event calendar by campus and building *
+[Event Date: 11/25/2023][Start: 10:30am][12:05pm] AB2225 (Academic Building, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][11:20am] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 1/15/2024][Start: 10:30am][12:30pm] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 12/7/2023][Start: 2:00pm][2:45pm] AB2225 (Academic Building, College Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
+[Event Date: 10/21/2023][Start: 10:30am][11:00am] ARC103 (Allison Road Classroom, Busch) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 10/23/2023][Start: 6:30pm][7:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 2/29/2024][Start: 6:30pm][8:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 3/3/2024][Start: 6:30pm][8:10pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
+[Event Date: 11/1/2023][Start: 10:30am][11:10am] BE_AUD (Beck Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][12:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/21/2023][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/23/2024][Start: 6:30pm][7:15pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 3/14/2024][Start: 10:30am][12:30pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
+[Event Date: 12/3/2023][Start: 6:30pm][7:50pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 1/31/2024][Start: 6:30pm][7:20pm] MU302 (Murray Hall, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 11/8/2023][Start: 2:00pm][3:15pm] TIL232 (Tillett Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 1/8/2024][Start: 2:00pm][2:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 12/31/2023][Start: 6:30pm][8:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Mathematics, MATH@rutgers.edu]
+* end of event calendar *
+* Event calendar by department *
+[Event Date: 2/29/2024][Start: 6:30pm][8:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][12:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 10/21/2023][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/29/2024][Start: 2:00pm][3:00pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 2/23/2024][Start: 6:30pm][7:15pm] HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
+[Event Date: 11/1/2023][Start: 10:30am][11:10am] BE_AUD (Beck Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 3/14/2024][Start: 10:30am][12:30pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, ITI@rutgers.edu]
+[Event Date: 12/3/2023][Start: 6:30pm][7:50pm] MU302 (Murray Hall, College Avenue) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 11/8/2023][Start: 2:00pm][3:15pm] TIL232 (Tillett Hall, Livingston) [Contact: Information Technology and Informatics, iti@rutgers.edu]
+[Event Date: 12/7/2023][Start: 2:00pm][2:45pm] AB2225 (Academic Building, College Avenue) [Contact: Electrical Engineering, EE@rutgers.edu]
+[Event Date: 10/21/2023][Start: 10:30am][11:00am] ARC103 (Allison Road Classroom, Busch) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 1/8/2024][Start: 2:00pm][2:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Electrical Engineering, ee@rutgers.edu]
+[Event Date: 12/15/2023][Start: 10:30am][11:20am] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 1/15/2024][Start: 10:30am][12:30pm] AB2225 (Academic Building, College Avenue) [Contact: Mathematics, math@rutgers.edu]
+[Event Date: 12/31/2023][Start: 6:30pm][8:30pm] TIL232 (Tillett Hall, Livingston) [Contact: Mathematics, MATH@rutgers.edu]
+[Event Date: 11/25/2023][Start: 10:30am][12:05pm] AB2225 (Academic Building, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 10/23/2023][Start: 6:30pm][7:30pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+[Event Date: 3/3/2024][Start: 6:30pm][8:10pm] ARC103 (Allison Road Classroom, Busch) [Contact: Business Analytics and Information Technology, bait@rutgers.edu]
+[Event Date: 1/31/2024][Start: 6:30pm][7:20pm] MU302 (Murray Hall, College Avenue) [Contact: Business Analytics and Information Technology, BAIT@rutgers.edu]
+* end of event calendar *
 q is an invalid command!
 Event Organizer terminated.
