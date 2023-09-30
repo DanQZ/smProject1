@@ -140,11 +140,14 @@ public class EventCalendar {
             Event currentEvent = events[i];
             int previousEvent = i - 1;
 
-            while(previousEvent >= 0 &&
-                    events[previousEvent].getStartTime().getHour() > currentEvent.getStartTime().getHour()){
-                events[previousEvent + 1] = events[previousEvent];
-                previousEvent -= 1;
-            }
+                while (previousEvent >= 0 &&
+                        events[previousEvent].getStartTime().getHour() >
+                                currentEvent.getStartTime().getHour() &&
+                        currentEvent.getDate().equals(events[previousEvent].getDate())) {
+                    events[previousEvent + 1] = events[previousEvent];
+                    previousEvent -= 1;
+                }
+
             events[previousEvent + 1] = currentEvent;
         }
     }

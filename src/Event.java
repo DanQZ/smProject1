@@ -98,12 +98,12 @@ public class Event implements Comparable<Event>{
     public String toString() {
         String eventOutput = "";
         eventOutput += "[Event Date: "
-                + date.toString() + "][Start: "
+                + date.toString() + "] [Start: "
                 + startTime.getHourStandard() + ":"
                 + startTime.getMinuteFirstDigit()
                 + startTime.getMinuteSecondDigit()
                 + amOrPm(startTime.getHour())
-                + "][" + getEndTime() +
+                + "] [" + getEndTime() +
                 amOrPm(getEndHour()) +"] "
                 + location.getRoomNumber() + " ("
                 + location.getBuildingName() + ", "
