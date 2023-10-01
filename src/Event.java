@@ -64,6 +64,14 @@ public class Event implements Comparable<Event>{
 
     public int getDuration() { return duration; };
 
+    /**
+     * Testbed.
+     * @param args
+     */
+    public static void main(String[] args){
+
+    }
+
     @Override
     public int compareTo(Event event){
         if(this.date.compareTo(event.date) > 0){
