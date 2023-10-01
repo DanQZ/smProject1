@@ -1,10 +1,9 @@
+import java.util.Scanner;
 /**
  * Creates an event calendar, and then continues to parse commands from the terminal and runs them until the quit command is input.
  * @Kimberly Donnarumma
  * @Daniel Zhang
  */
-
-import java.util.Scanner;
 public class EventOrganizer {
     EventCalendar curCalendar;
 
