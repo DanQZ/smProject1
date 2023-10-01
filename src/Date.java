@@ -53,12 +53,122 @@ public class Date implements Comparable<Date>{
     }
 
     /**
-     * Testbed.
+     * Testbed main to test the isValid() method.
      * @param args
      */
     public static void main(String[] args){
-        Date test = new Date();
-        System.out.println("Year: " + test.year + " Month: " + test.month + " Day: " + test.day);
+        testDaysInFeb_nonLeap(); // Test 1
+        testDaysInFeb_Leap(); // Test 2
+        testMonth_outOfRange31(); // Test 3
+        testMonth_outOfRange30(); // Test 4
+        testDay_lessThan1(); // Test 5
+        testMonthInvalid(); // Test 6
+    }
+
+    private static void testDaysInFeb_nonLeap(){
+        Date date = new Date(2011, 2, 29);
+        boolean expectedOutput = false;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 1: # of days in Feb in a " +
+                "non-leap year is 28.");
+        testResult(date, expectedOutput, actualOutput);
+        date.day = 0;
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testDaysInFeb_Leap(){
+        Date date = new Date(2000, 2, 29);
+        boolean expectedOutput = true;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 2: # of days in Feb in a " +
+                "leap year is 29.");
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testMonth_outOfRange31(){
+        Date date = new Date(2000, 1, 31);
+        boolean expectedOutput = true;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 3: # of days in January, March, May," +
+                " July, August, October, and December is 31.");
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 3;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 5;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 7;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 8;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 10;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 12;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.day = 32;
+        expectedOutput = false;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testMonth_outOfRange30(){
+        Date date = new Date(1000, 4, 30);
+        boolean expectedOutput = true;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 4: # of days in April, June," +
+                " September, and November is 30.");
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 6;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 9;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 11;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+        date.day = 31;
+        expectedOutput = false;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testDay_lessThan1(){
+        Date date = new Date(2024, 4, 0);
+        boolean expectedOutput = false;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 5: # of days must be greater than 1.");
+        testResult(date, expectedOutput, actualOutput);
+        date.day = -1;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testMonthInvalid(){
+        Date date = new Date(2003, 0, 23);
+        boolean expectedOutput = false;
+        boolean actualOutput = date.isValid();
+        System.out.println("Test case 6: Month most be between 1 and 12 inclusive.");
+        testResult(date, expectedOutput, actualOutput);
+        date.month = 13;
+        actualOutput = date.isValid();
+        testResult(date, expectedOutput, actualOutput);
+    }
+
+    private static void testResult(Date date, boolean expectedOutput, boolean actualOutput){
+        System.out.println(date.toString());
+        if(expectedOutput == actualOutput){
+            System.out.println("PASS");
+        }
+        else {
+            System.out.println("FAIL");
+        }
+        System.out.println();
     }
 
     /**
