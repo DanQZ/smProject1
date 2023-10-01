@@ -1,7 +1,7 @@
 /**
  * Define the abstract data type Event.
- * @ KimberlyDonnarumma
- * @ DanielZhang
+ * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public class Event implements Comparable<Event>{
     private Date date;
