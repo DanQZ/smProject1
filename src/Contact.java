@@ -1,6 +1,7 @@
 /**
  * Define the abstract data type Contact.
  * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public class Contact {
     private Department department;

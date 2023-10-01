@@ -1,6 +1,7 @@
 /**
  * Define the abstract data type Location.
- * @
+ * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public enum Location {
 /*
