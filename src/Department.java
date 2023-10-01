@@ -1,6 +1,7 @@
 /**
  * Define the abstract data type Department.
- * @
+ * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public enum Department {
     CS("Computer Science"),

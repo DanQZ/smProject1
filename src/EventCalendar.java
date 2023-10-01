@@ -1,6 +1,6 @@
 /**
- * @Kimberly Donnarumma
- * @Daniel Zhang
+ * @KimberlyDonnarumma
+ * @DanielZhang
  */
 
 public class EventCalendar {

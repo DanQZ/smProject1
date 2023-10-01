@@ -1,6 +1,7 @@
 /**
  * Define the abstract data type Timeslot.
- * @
+ * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public enum Timeslot {
     MORNING(10, 3, 0),

@@ -2,16 +2,17 @@ import java.util.Calendar;
 /**
  * Define the abstract data type Date.
  * @KimberlyDonnarumma
+ * @DanielZhang
  */
 public class Date implements Comparable<Date>{
     private int year;
     private int month;
     private int day;
 
-    public static final int JMMJAOD = 31;
-    public static final int AJSN = 30;
-    public static final int FNL = 28;
-    public static final int FL = 29;
+    public static final int DAYS_31 = 31;
+    public static final int DAYS_30 = 30;
+    public static final int FEBRUARY_NON_LEAP_DAYS = 28;
+    public static final int FEBRUARY_LEAP_DAYS = 29;
     public static final int QUADRENNIAL = 4;
     public static final int CENTENNIAL = 100;
     public static final int QUARTERCENTENNIAL = 400;
@@ -214,7 +215,7 @@ public class Date implements Comparable<Date>{
             this.month == MAY || this.month == JULY ||
             this.month == AUGUST || this.month == OCTOBER ||
             this.month == DECEMBER){
-            if(this.day <= JMMJAOD && this.day > 0){
+            if(this.day <= DAYS_31 && this.day > 0){
                 return true;
             }
             else{
@@ -223,7 +224,7 @@ public class Date implements Comparable<Date>{
         }
         else if(this.month == APRIL || this.month == JUNE ||
             this.month == SEPTEMBER || this.month == NOVEMBER){
-            if(this.day <= AJSN && this.day > 0){
+            if(this.day <= DAYS_30 && this.day > 0){
                 return true;
             }
             else{
@@ -232,7 +233,7 @@ public class Date implements Comparable<Date>{
         }
         else if(this.month == FEBRUARY){
             if(isLeap(this.year)){
-                if(this.day <= FL && this.day > 0){
+                if(this.day <= FEBRUARY_LEAP_DAYS && this.day > 0){
                     return true;
                 }
                 else{
@@ -240,7 +241,7 @@ public class Date implements Comparable<Date>{
                 }
             }
             else{
-                if(this.day <= FNL && this.day > 0){
+                if(this.day <= FEBRUARY_NON_LEAP_DAYS && this.day > 0){
                     return true;
                 }
                 else{
