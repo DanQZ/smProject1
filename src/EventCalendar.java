@@ -139,7 +139,6 @@ public class EventCalendar {
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
-
                 while (previousEvent >= 0 &&
                         events[previousEvent].getStartTime().getHour() >
                                 currentEvent.getStartTime().getHour() &&
@@ -147,7 +146,6 @@ public class EventCalendar {
                     events[previousEvent + 1] = events[previousEvent];
                     previousEvent -= 1;
                 }
-
             events[previousEvent + 1] = currentEvent;
         }
     }
@@ -187,7 +185,8 @@ public class EventCalendar {
             int previousEvent = i - 1;
 
             while(previousEvent >= 0 &&
-                    events[previousEvent].getLocation().getBuildingName().compareTo(currentEvent.getLocation().getBuildingName()) > 0){
+                    events[previousEvent].getLocation().getBuildingName().compareTo(currentEvent.getLocation().getBuildingName()) > 0
+                    && events[previousEvent].getLocation().getBuildingName().equals(currentEvent.getLocation().getBuildingName())){
                 events[previousEvent + 1] = events[previousEvent];
                 previousEvent -= 1;
             }
@@ -206,9 +205,8 @@ public class EventCalendar {
         for(int i = 1; i < numEvents; i++){
             Event currentEvent = events[i];
             int previousEvent = i - 1;
-
             while(previousEvent >= 0 &&
-                    events[previousEvent].getContact().getDepartment().compareTo(currentEvent.getContact().getDepartment()) > 0){
+                    events[previousEvent].getContact().getDepartment().toString().compareTo(currentEvent.getContact().getDepartment().toString()) > 0){
                 events[previousEvent + 1] = events[previousEvent];
                 previousEvent -= 1;
             }
