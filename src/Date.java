@@ -303,6 +303,12 @@ public class Date implements Comparable<Date>{
         return 0;
     }
 
+    /**
+     * Override.
+     * @param date the object to be compared.
+     * @return -1 if the object is less than, 1 if the object is greater than, and 0
+     * if they are the same.
+     */
     @Override
     public int compareTo(Date date){
         if(this.year < date.year){
@@ -332,6 +338,10 @@ public class Date implements Comparable<Date>{
         }
     }
 
+    /**
+     * Override.
+     * @return Date in the form of a string.
+     */
     @Override
     public String toString(){
         String dateString = "";
