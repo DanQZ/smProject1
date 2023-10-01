@@ -1,4 +1,5 @@
 /**
+ * Creates an event calendar, and then continues to parse commands from the terminal and runs them until the quit command is input.
  * @Kimberly Donnarumma
  * @Daniel Zhang
  */
@@ -97,10 +98,10 @@ public class EventOrganizer {
     }
 
     /**
-     Creates an event using existing tokens
-     Does nothing if something in the command is invalid
-     @param tokens is a string array of each token
-     @return the created event.
+     * Creates an event using existing tokens
+     * Does nothing if something in the command is invalid
+     * @param tokens is a string array of each token
+     * @return the created event.
      */
     private Event newEvent(String[] tokens){
         Date newDate = dateParseCreate(tokens[1]);
