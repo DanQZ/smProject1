@@ -3,12 +3,13 @@
  * @Daniel Zhang
  */
 
-import java.util.Arrays;
-
 public class EventCalendar {
     private Event [] events; //the array holding the list of events
     private int numEvents; //current number of events in the array
 
+    /**
+     Creates an eventCalendar with 4 empty events
+     */
     public EventCalendar(){
         events = new Event[4];
         numEvents = 0;
@@ -28,6 +29,9 @@ public class EventCalendar {
     } //search an event in the list
 
     private final int GROW_BY = 4;
+    /**
+     Increases the size of the calendar array by GROW_BY, keeps existing events in it
+     */
     private void grow() {
         int newSize = events.length + GROW_BY;
         Event[] newArray = new Event[newSize];
@@ -37,7 +41,14 @@ public class EventCalendar {
         events = newArray;
     } //increase the capacity by 4
 
-    public boolean add(Event newEvent) {
+    /**
+     Adds a new event to the calendar and increases numEvent by 1
+     Calls grow() if necessary
+     Does not overwrite existing events at same attributes
+     @param newEvent takes in an Event to be added to the calendar
+     @return if adding was successful
+     */
+    public boolean newCalendarEvent(Event newEvent) {
         if(numEvents == events.length){
             grow();
         }
@@ -56,6 +67,13 @@ public class EventCalendar {
         numEvents++;
         return true;
     }
+
+    /**
+     Removes events from calendar a certain location, time, and date, and lowers numEvents by 1
+     Does nothing if the event does not exist
+     @param event's location, timeslot, and date are used to compare to existing events
+     @return if an event was removed
+     */
     public boolean remove(Event event) {
         int removeIndex = find(event);
         if(removeIndex == NOT_FOUND){
@@ -76,12 +94,23 @@ public class EventCalendar {
         numEvents--;
         return true;
     }
-    public boolean contains(Event event) {
+
+
+    /**
+     Checks for existence of an event
+     @param event is used to get location, time, and date
+     @return true if it exists, false otherwise
+     */
+    public boolean calendarContains(Event event) {
         if(find(event) == NOT_FOUND){
             return false;
         }
         return true;
     }
+    /**
+     Checks for existence of any events
+     @return true if calendar has no events, false otherwise
+     */
     public boolean calendarIsEmpty(){
         if(numEvents == 0){
             System.out.println("Event calendar is empty!");
@@ -89,6 +118,9 @@ public class EventCalendar {
         }
         return false;
     }
+    /**
+     Prints all events in the calendar in the current order in array without sorting
+     */
     public void print() {
         if(calendarIsEmpty()){
             return;
@@ -97,6 +129,9 @@ public class EventCalendar {
         printDefault();
     } //print the array as is
 
+    /**
+     Prints all events in the calendar in the current order in array with no header
+     */
     private void printDefault(){
         int i = 0;
         for (Event checkedEvent: events) {

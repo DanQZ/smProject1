@@ -32,17 +32,14 @@ public class EventOrganizer {
      @return false if Q command given, indicating to quit running this program
      */
     boolean InputParserRunner(String newInput){
-
-       //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
-
         int i = 0;
         for (String checkedToken:
                 tokens) {
-             //System.out.println("Token " + i + ": [" + checkedToken + "]");
             i++;
         }
         /*
+        Token information
         commandToken = tokens[0];
         dateToken = tokens[1];
         timeslotToken = tokens[2];
@@ -55,19 +52,17 @@ public class EventOrganizer {
             System.out.println(tokens[0] + " is an invalid command!");
             return true;
         }
-
         if(tokens[0].equals("Q")){
             return false;
         }
-
         commandRunner(tokens);
         int newDuration = -1;
         if(tokens[6] != null){
             newDuration = Integer.parseInt(tokens[6]);
         }
-
         return true;
     }
+
     /**
      Runs command if token is valid
      @param tokens takes an array of each string token.
@@ -163,7 +158,7 @@ public class EventOrganizer {
         if(!validEvent){
             return;
         }
-        boolean success = curCalendar.add(newEvent);
+        boolean success = curCalendar.newCalendarEvent(newEvent);
         if(success){
             System.out.println("Event added to the calendar.");
         }
@@ -172,7 +167,6 @@ public class EventOrganizer {
             return;
         }
     }
-
 
     /**
      Checks if a date is valid and if not, returns why
@@ -192,6 +186,7 @@ public class EventOrganizer {
         }
         return "valid";
     }
+
     /**
      Removes an event at the location and time if it exists, and prints out the result
      @param tokens takes an array of each string token.
@@ -211,9 +206,18 @@ public class EventOrganizer {
             System.out.println("Cannot remove; event is not in the calendar!");
         }
     }
+
+    /**
+     Calls print() for current calendar
+     */
     private void displayEventsCurrentOrder(){
         curCalendar.print();
     }
+
+    /**
+     Helper method to choose which sorting method is wanted
+     @param sortBy "date", "campus", and "department" are the options to sort by
+     */
     private void displayEventsSorted(String sortBy){
         switch (sortBy){
             default:
@@ -229,6 +233,7 @@ public class EventOrganizer {
                 break;
         }
     }
+
     /**
      Helper method to check if an event is valid before adding it to the calendar
      @param newEvent takes the newly created event object
@@ -263,7 +268,7 @@ public class EventOrganizer {
             System.out.println("Invalid location!");
             return false;
         }
-        if(curCalendar.contains(newEvent)){
+        if(curCalendar.calendarContains(newEvent)){
             System.out.println("The event is already on the calendar.");
             return false;
         }
@@ -464,7 +469,6 @@ public class EventOrganizer {
                 newDepartment = Department.BAIT;
                 break;
         }
-
         return newDepartment;
     }
 }
