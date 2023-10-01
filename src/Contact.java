@@ -58,6 +58,10 @@ public class Contact {
         }
     }
 
+    /**
+     * Override
+     * @return Email as a string.
+     */
     @Override
     public String toString(){
         return email;

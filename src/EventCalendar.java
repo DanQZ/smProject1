@@ -1,4 +1,5 @@
 /**
+ * Define the abstract data type EventCalendar.
  * @KimberlyDonnarumma
  * @DanielZhang
  */

@@ -69,6 +69,12 @@ public class Event implements Comparable<Event>{
      */
     public int getDuration() { return duration; };
 
+    /**
+     * Override.
+     * @param event the object to be compared.
+     * @return -1 if the object is less than, 1 if the object is greater than, and 0
+     * if they are the same.
+     */
     @Override
     public int compareTo(Event event){
         if(this.date.compareTo(event.date) > 0){
@@ -86,6 +92,11 @@ public class Event implements Comparable<Event>{
         return 0;
     }
 
+    /**
+     * Override.
+     * @param obj
+     * @return 1 if the events are the same, 0 otherwise.
+     */
     @Override
     public boolean equals(Object obj){
         if(obj instanceof Event){
@@ -99,6 +110,10 @@ public class Event implements Comparable<Event>{
         return false;
     }
 
+    /**
+     * Override.
+     * @return Event in the form of a string.
+     */
     @Override
     public String toString() {
         String eventOutput = "";
