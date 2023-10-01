@@ -3,7 +3,6 @@
  * @Daniel Zhang
  */
 
-import java.sql.Time;
 import java.util.Scanner;
 public class EventOrganizer {
     EventCalendar curCalendar;
@@ -18,7 +17,7 @@ public class EventOrganizer {
         curCalendar = new EventCalendar();
         while(true){
             newInput = scanner.nextLine();
-            boolean continueRunning = parseAndRunInput(newInput);
+            boolean continueRunning = InputParserRunner(newInput);
             if(!continueRunning){
                 break;
             }
@@ -32,7 +31,7 @@ public class EventOrganizer {
      @param newInput takes in the whole command string
      @return false if Q command given, indicating to quit running this program
      */
-    boolean parseAndRunInput(String newInput){
+    boolean InputParserRunner(String newInput){
 
        //System.out.println("input: " + newInput);
         String[] tokens = tokenize(newInput, " ");
@@ -61,7 +60,7 @@ public class EventOrganizer {
             return false;
         }
 
-        runCommand(tokens);
+        commandRunner(tokens);
         int newDuration = -1;
         if(tokens[6] != null){
             newDuration = Integer.parseInt(tokens[6]);
@@ -74,7 +73,7 @@ public class EventOrganizer {
      @param tokens takes an array of each string token.
      @return true if the command was run otherwise returns false.
      */
-    private boolean runCommand(String[] tokens){
+    private boolean commandRunner(String[] tokens){
         boolean ran = false;
 
         switch (tokens[0]){
@@ -108,11 +107,11 @@ public class EventOrganizer {
      @param tokens is a string array of each token
      @return the created event.
      */
-    private Event createEvent(String[] tokens){
-        Date newDate = parseAndCreateDate(tokens[1]);
-        Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);
-        Location newLocation = parseAndCreateLocation(tokens[3]);
-        Department newDepartment = parseAndCreateDepartment(tokens[4]);
+    private Event newEvent(String[] tokens){
+        Date newDate = dateParseCreate(tokens[1]);
+        Timeslot newTimeslot = timeslotParseCreate(tokens[2]);
+        Location newLocation = locationParseCreate(tokens[3]);
+        Department newDepartment = departmentParseCreate(tokens[4]);
         String newEmail = tokens[5];
         int newDuration = Integer.parseInt(tokens[6]);
 
@@ -132,10 +131,10 @@ public class EventOrganizer {
      @param tokens takes an array of each string token.
      @return the created event
      */
-    private Event createTempEvent(String[] tokens){
-        Date newDate = parseAndCreateDate(tokens[1]);
-        Timeslot newTimeslot = parseAndCreateTimeslot(tokens[2]);
-        Location newLocation = parseAndCreateLocation(tokens[3]);
+    private Event newTempEvent(String[] tokens){
+        Date newDate = dateParseCreate(tokens[1]);
+        Timeslot newTimeslot = timeslotParseCreate(tokens[2]);
+        Location newLocation = locationParseCreate(tokens[3]);
         Department newDepartment = Department.CS;
         String newEmail = "cs@rutgers.edu";
         int newDuration = 30;
@@ -158,7 +157,7 @@ public class EventOrganizer {
      */
     private void addEvent(String[] tokens){
 
-        Event newEvent = createEvent(tokens);
+        Event newEvent = newEvent(tokens);
 
         boolean validEvent = newEventIsValid(newEvent);
         if(!validEvent){
@@ -180,7 +179,7 @@ public class EventOrganizer {
      @param dateArg takes a date
      @return a string why it's not valid or if it is valid
      */
-    private String checkValidDate(Date dateArg){
+    private String validDate(Date dateArg){
         String dateString = dateArg.toString();
         if(!dateArg.isValid()){
             return dateString + ": Invalid calendar date!";
@@ -198,8 +197,8 @@ public class EventOrganizer {
      @param tokens takes an array of each string token.
      */
     private void removeEvent(String[] tokens){
-        Event tempEvent = createTempEvent(tokens);
-        String dateStatus =checkValidDate(tempEvent.getDate());
+        Event tempEvent = newTempEvent(tokens);
+        String dateStatus = validDate(tempEvent.getDate());
         if(!dateStatus.equals("valid")){
             System.out.println(dateStatus);
             return;
@@ -340,7 +339,7 @@ public class EventOrganizer {
      @param dateArg takes in the date token
      @return null if invalid date, otherwise returns newly created Date
      */
-    private Date parseAndCreateDate(String dateArg){
+    private Date dateParseCreate(String dateArg){
         if(dateArg == null){
             System.out.println("dateArg is null");
             return null;
@@ -375,7 +374,7 @@ public class EventOrganizer {
      @param timeslotArg takes in the timeslot token
      @return null if invalid date, otherwise returns newly created Timeslot
      */
-    private Timeslot parseAndCreateTimeslot(String timeslotArg){
+    private Timeslot timeslotParseCreate(String timeslotArg){
         if(timeslotArg == null){
             return null;
         }
@@ -403,7 +402,7 @@ public class EventOrganizer {
      @param locationArg takes in the location token
      @return null if invalid date, otherwise returns newly created Location
      */
-    private Location parseAndCreateLocation(String locationArg){
+    private Location locationParseCreate(String locationArg){
         if(locationArg == null){
             System.out.println("null locationArg");
             return null;
@@ -440,7 +439,7 @@ public class EventOrganizer {
      @param departmentArg takes in the department token
      @return null if invalid date, otherwise returns newly created Department
      */
-    private Department parseAndCreateDepartment(String departmentArg) {
+    private Department departmentParseCreate(String departmentArg) {
         if(departmentArg == null){
             return null;
         }

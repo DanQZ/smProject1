@@ -1,6 +1,7 @@
 /**
  * Define the abstract data type Event.
- * @ KimberlyDonnarumma
+ * @ Kimberly Donnarumma
+ * @ Daniel Zhang
  */
 public class Event implements Comparable<Event>{
     private Date date;
@@ -63,14 +64,6 @@ public class Event implements Comparable<Event>{
     }
 
     public int getDuration() { return duration; };
-
-    /**
-     * Testbed.
-     * @param args
-     */
-    public static void main(String[] args){
-
-    }
 
     @Override
     public int compareTo(Event event){
@@ -173,5 +166,211 @@ public class Event implements Comparable<Event>{
         }
 
         return endHour;
+    }
+
+    /**
+     * Testbed main to test the equals() method.
+     * @param args
+     */
+    public static void main(String[] args) {
+        TestDiffTimeslot(); // test 1
+        TestDiffDate(); // test 2
+        TestDiffLocation(); // test 3
+        TestDiffExtraneous(); // test 4
+        TestDifferentEverything(); // test 5
+    }
+    private static void TestDiffTimeslot(){
+        Date newDate1 = new Date(2022,1,20);
+
+        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Location newLocation1 = Location.HLL114;
+        Department newDepartment1 = Department.CS;
+        String newEmail1 = "cs@rutgers.edu";
+        int newDuration1 = 60;
+
+        Contact newContact1 = new Contact(newDepartment1, newEmail1);
+        Event tempEvent1 = new Event(
+                newDate1,
+                newTimeslot1,
+                newLocation1,
+                newContact1,
+                newDuration1
+        );
+
+        Date newDate2 = new Date(2022,1,20);
+
+        Timeslot newTimeslot2 = Timeslot.MORNING;
+        Location newLocation2 = Location.HLL114;
+        Department newDepartment2 = Department.CS;
+        String newEmail2 = "cs@rutgers.edu";
+        int newDuration2 = 60;
+
+        Contact newContact2 = new Contact(newDepartment2, newEmail2);
+        Event tempEvent2 = new Event(
+                newDate2,
+                newTimeslot2,
+                newLocation2,
+                newContact2,
+                newDuration2
+        );
+
+        boolean output = tempEvent1.equals(tempEvent2);
+        System.out.println("Testing equals() with different timeslots, should output FALSE : " + output);
+    }
+    private static void TestDiffDate(){
+
+        Date newDate1 = new Date(2022,2,20);
+
+        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Location newLocation1 = Location.HLL114;
+        Department newDepartment1 = Department.CS;
+        String newEmail1 = "cs@rutgers.edu";
+        int newDuration1 = 60;
+
+        Contact newContact1 = new Contact(newDepartment1, newEmail1);
+        Event tempEvent1 = new Event(
+                newDate1,
+                newTimeslot1,
+                newLocation1,
+                newContact1,
+                newDuration1
+        );
+
+        Date newDate2 = new Date(2022,1,20);
+
+        Timeslot newTimeslot2 = Timeslot.AFTERNOON;
+        Location newLocation2 = Location.HLL114;
+        Department newDepartment2 = Department.CS;
+        String newEmail2 = "cs@rutgers.edu";
+        int newDuration2 = 60;
+
+        Contact newContact2 = new Contact(newDepartment2, newEmail2);
+        Event tempEvent2 = new Event(
+                newDate2,
+                newTimeslot2,
+                newLocation2,
+                newContact2,
+                newDuration2
+        );
+
+        boolean output = tempEvent1.equals(tempEvent2);
+        System.out.println("Testing equals() with different dates, should output FALSE : " + output);
+    }
+    private static void TestDiffLocation(){
+
+        Date newDate1 = new Date(2022,1,20);
+
+        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Location newLocation1 = Location.HLL114;
+        Department newDepartment1 = Department.CS;
+        String newEmail1 = "cs@rutgers.edu";
+        int newDuration1 = 60;
+
+        Contact newContact1 = new Contact(newDepartment1, newEmail1);
+        Event tempEvent1 = new Event(
+                newDate1,
+                newTimeslot1,
+                newLocation1,
+                newContact1,
+                newDuration1
+        );
+
+        Date newDate2 = new Date(2022,1,20);
+
+        Timeslot newTimeslot2 = Timeslot.AFTERNOON;
+        Location newLocation2 = Location.ARC103;
+        Department newDepartment2 = Department.CS;
+        String newEmail2 = "cs@rutgers.edu";
+        int newDuration2 = 60;
+
+        Contact newContact2 = new Contact(newDepartment2, newEmail2);
+        Event tempEvent2 = new Event(
+                newDate2,
+                newTimeslot2,
+                newLocation2,
+                newContact2,
+                newDuration2
+        );
+
+        boolean output = tempEvent1.equals(tempEvent2);
+        System.out.println("Testing equals() with different locations, should output FALSE : " + output);
+    }
+    private static void TestDiffExtraneous(){
+
+        Date newDate1 = new Date(2022,1,20);
+
+        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Location newLocation1 = Location.HLL114;
+        Department newDepartment1 = Department.EE;
+        String newEmail1 = "ee@rutgers.edu";
+        int newDuration1 = 60;
+
+        Contact newContact1 = new Contact(newDepartment1, newEmail1);
+        Event tempEvent1 = new Event(
+                newDate1,
+                newTimeslot1,
+                newLocation1,
+                newContact1,
+                newDuration1
+        );
+
+        Date newDate2 = new Date(2022,1,20);
+
+        Timeslot newTimeslot2 = Timeslot.MORNING;
+        Location newLocation2 = Location.HLL114;
+        Department newDepartment2 = Department.CS;
+        String newEmail2 = "cs@rutgers.edu";
+        int newDuration2 = 45;
+
+        Contact newContact2 = new Contact(newDepartment2, newEmail2);
+        Event tempEvent2 = new Event(
+                newDate2,
+                newTimeslot2,
+                newLocation2,
+                newContact2,
+                newDuration2
+        );
+
+        boolean output = tempEvent1.equals(tempEvent2);
+        System.out.println("Testing equals() with different extraneous attributes, should output TRUE : " + output);
+    }
+    private static void TestDifferentEverything(){
+
+        Date newDate1 = new Date(2022,2,20);
+
+        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Location newLocation1 = Location.ARC103;
+        Department newDepartment1 = Department.CS;
+        String newEmail1 = "cs@rutgers.edu";
+        int newDuration1 = 60;
+
+        Contact newContact1 = new Contact(newDepartment1, newEmail1);
+        Event tempEvent1 = new Event(
+                newDate1,
+                newTimeslot1,
+                newLocation1,
+                newContact1,
+                newDuration1
+        );
+
+        Date newDate2 = new Date(2022,1,20);
+
+        Timeslot newTimeslot2 = Timeslot.MORNING;
+        Location newLocation2 = Location.HLL114;
+        Department newDepartment2 = Department.CS;
+        String newEmail2 = "cs@rutgers.edu";
+        int newDuration2 = 60;
+
+        Contact newContact2 = new Contact(newDepartment2, newEmail2);
+        Event tempEvent2 = new Event(
+                newDate2,
+                newTimeslot2,
+                newLocation2,
+                newContact2,
+                newDuration2
+        );
+
+        boolean output = tempEvent1.equals(tempEvent2);
+        System.out.println("Testing equals() with different location, timeslot, and date, should output FALSE : " + output);
     }
 }
