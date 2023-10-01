@@ -1,7 +1,7 @@
 import java.util.Calendar;
 /**
  * Define the abstract data type Date.
- * @KimberlyDonnarumma,
+ * @KimberlyDonnarumma
  */
 public class Date implements Comparable<Date>{
     private int year;
@@ -65,6 +65,10 @@ public class Date implements Comparable<Date>{
         testMonthInvalid(); // Test 6
     }
 
+    /**
+     * Test case 1: Create and test an invalid day for a
+     * non-leap year in the month of February.
+     */
     private static void testDaysInFeb_nonLeap(){
         Date date = new Date(2011, 2, 29);
         boolean expectedOutput = false;
@@ -74,8 +78,13 @@ public class Date implements Comparable<Date>{
         testResult(date, expectedOutput, actualOutput);
         date.day = 0;
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Test case 2: Create and test an invalid day for a
+     * leap year in the month of February.
+     */
     private static void testDaysInFeb_Leap(){
         Date date = new Date(2000, 2, 29);
         boolean expectedOutput = true;
@@ -83,11 +92,15 @@ public class Date implements Comparable<Date>{
         System.out.println("Test case 2: # of days in Feb in a " +
                 "leap year is 29.");
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Test case 3: Test day 31 for each month with 31 days.
+     */
     private static void testMonth_outOfRange31(){
-        Date date = new Date(2000, 1, 31);
-        boolean expectedOutput = true;
+        Date date = new Date(2000, 1, 32);
+        boolean expectedOutput = false;
         boolean actualOutput = date.isValid();
         System.out.println("Test case 3: # of days in January, March, May," +
                 " July, August, October, and December is 31.");
@@ -110,15 +123,19 @@ public class Date implements Comparable<Date>{
         date.month = 12;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
-        date.day = 32;
-        expectedOutput = false;
+        date.day = 31;
+        expectedOutput = true;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Test case 4: Test day 30 for each month with 30 days.
+     */
     private static void testMonth_outOfRange30(){
-        Date date = new Date(1000, 4, 30);
-        boolean expectedOutput = true;
+        Date date = new Date(1000, 4, 31);
+        boolean expectedOutput = false;
         boolean actualOutput = date.isValid();
         System.out.println("Test case 4: # of days in April, June," +
                 " September, and November is 30.");
@@ -132,12 +149,17 @@ public class Date implements Comparable<Date>{
         date.month = 11;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
-        date.day = 31;
-        expectedOutput = false;
+        date.day = 30;
+        expectedOutput = true;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Test case 5: Create a date with valid year and
+     * month, but with day of <=0
+     */
     private static void testDay_lessThan1(){
         Date date = new Date(2024, 4, 0);
         boolean expectedOutput = false;
@@ -147,8 +169,13 @@ public class Date implements Comparable<Date>{
         date.day = -1;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Test case 6: Create a date with valid day and
+     * year, but invalid month.
+     */
     private static void testMonthInvalid(){
         Date date = new Date(2003, 0, 23);
         boolean expectedOutput = false;
@@ -158,8 +185,16 @@ public class Date implements Comparable<Date>{
         date.month = 13;
         actualOutput = date.isValid();
         testResult(date, expectedOutput, actualOutput);
+        System.out.println();
     }
 
+    /**
+     * Tests the expected output of a test case against the actual output of the test case.
+     * Prints the test date and PASS if the test outputs are the same, FAIL if they are different.
+     * @param date
+     * @param expectedOutput
+     * @param actualOutput
+     */
     private static void testResult(Date date, boolean expectedOutput, boolean actualOutput){
         System.out.println(date.toString());
         if(expectedOutput == actualOutput){
@@ -168,7 +203,6 @@ public class Date implements Comparable<Date>{
         else {
             System.out.println("FAIL");
         }
-        System.out.println();
     }
 
     /**
