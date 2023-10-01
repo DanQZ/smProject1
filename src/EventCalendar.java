@@ -151,47 +151,38 @@ public class EventCalendar {
     }
 
     /**
-     * Sorts and prints the array by campus.
+     * Sorts and prints the array by campus, and if same campus then sorts by whichever has a smaller alphabetical building.
      */
     public void printByCampus() {
         if(calendarIsEmpty()){
             return;
         }
         System.out.println("* Event calendar by campus and building *");
-        for(int i = 1; i < numEvents; i++){
-            Event currentEvent = events[i];
-            int previousEvent = i - 1;
 
-            while(previousEvent >= 0 &&
-                    events[previousEvent].getLocation().getCampus().compareTo(currentEvent.getLocation().getCampus()) > 0){
-                events[previousEvent + 1] = events[previousEvent];
-                previousEvent -= 1;
+        for(int i = 0; i < numEvents; i++) {
+            Event smallestEvent = events[i]; // sets default smallestEvent
+            int smallestIndex = i;
+            for (int k = i; k < numEvents; k++) {
+                String campus1 = smallestEvent.getLocation().getCampus();
+                String campus2 = events[k].getLocation().getCampus();
+                if (campus2.compareTo(campus1) < 0) { // checked event has smaller alphabetical campus
+                    smallestEvent = events[k];
+                    smallestIndex = k;
+                }
+                if(campus2.compareTo(campus1) == 0){ // same campus, check buildings alphabetically
+                    String building1 = smallestEvent.getLocation().getBuildingName();
+                    String building2 = events[k].getLocation().getBuildingName();
+                    if(building2.compareTo(building1) < 0){
+                        smallestEvent = events[k];
+                        smallestIndex = k;
+                    }
+                }
             }
-            events[previousEvent + 1] = currentEvent;
+            Event swappedEvent = events[i];
+            events[i] = smallestEvent;
+            events[smallestIndex] = swappedEvent;
         }
-        organizeBuilding();
         printDefault();
-    }
-
-    /**
-     * Sorts the array by building.
-     */
-    private void organizeBuilding() {
-        if(calendarIsEmpty()){
-            return;
-        }
-        for(int i = 1; i < numEvents; i++){
-            Event currentEvent = events[i];
-            int previousEvent = i - 1;
-
-            while(previousEvent >= 0 &&
-                    events[previousEvent].getLocation().getBuildingName().compareTo(currentEvent.getLocation().getBuildingName()) > 0
-                    && events[previousEvent].getLocation().getBuildingName().equals(currentEvent.getLocation().getBuildingName())){
-                events[previousEvent + 1] = events[previousEvent];
-                previousEvent -= 1;
-            }
-            events[previousEvent + 1] = currentEvent;
-        }
     }
 
     /**
