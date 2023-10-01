@@ -1,7 +1,7 @@
 /**
  * Define the abstract data type Event.
- * @ Kimberly Donnarumma
- * @ Daniel Zhang
+ * @ KimberlyDonnarumma
+ * @ DanielZhang
  */
 public class Event implements Comparable<Event>{
     private Date date;
@@ -63,6 +63,10 @@ public class Event implements Comparable<Event>{
         return contact;
     }
 
+    /**
+     * Getter method.
+     * @return Duration of the Event.
+     */
     public int getDuration() { return duration; };
 
     @Override
@@ -113,8 +117,12 @@ public class Event implements Comparable<Event>{
                 + ", " + contact.toString() + "]";
         return eventOutput;
     }
-    //[Event Date: 10/21/2023] [Start: 2:00pm] [End: 3:00pm] @HLL114 (Hill Center, Busch) [Contact: Computer Science, cs@rutgers.edu]
 
+    /**
+     * Returns if the given hour (in military time) is in the AM or PM.
+     * @param hour
+     * @return String "AM" or string "PM".
+     */
     private String amOrPm(int hour){
         if(hour >= 12){
             return "pm";
@@ -151,6 +159,10 @@ public class Event implements Comparable<Event>{
         return endtime;
     }
 
+    /**
+     * Calculates the end hour of an event.
+     * @return The end hour integer.
+     */
     private int getEndHour(){
         int changingDuration = duration;
         int endHour = startTime.getHour();
