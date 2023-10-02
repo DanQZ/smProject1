@@ -48,8 +48,12 @@ public class EventOrganizer {
         emailToken = tokens[5];
         durationMinutesToken = tokens[6];
         */
-        if(!commandIsValid(tokens[0])){
+        if(!commandIsValid(tokens[0]) && tokens[0] != null){
             System.out.println(tokens[0] + " is an invalid command!");
+            return true;
+        }
+        if(tokens[0] == null){
+            System.out.println();
             return true;
         }
         if(tokens[0].equals("Q")){
