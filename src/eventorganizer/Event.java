@@ -104,8 +104,11 @@ public class Event implements Comparable<Event>{
         if(obj instanceof Event){
             Event event = (Event) obj;
             if(this.date.equals(event.getDate()) &&
-                this.startTime.equals(event.startTime) &&
-                this.location.equals(event.location)){
+                    this.startTime.getHour() == event.startTime.getHour() &&
+                    this.startTime.getMinuteFirstDigit() == event.startTime.getMinuteFirstDigit() &&
+                    this.startTime.getMinuteSecondDigit() == event.startTime.getMinuteSecondDigit() &&
+                    this.location.getBuildingName().equals(event.location.getBuildingName()) &&
+                    this.location.getCampus().equals(event.location.getCampus())){
                 return true;
             }
         }
@@ -328,7 +331,7 @@ public class Event implements Comparable<Event>{
 
         Date newDate1 = new Date(2022,1,20);
 
-        Timeslot newTimeslot1 = Timeslot.AFTERNOON;
+        Timeslot newTimeslot1 = Timeslot.MORNING;
         Location newLocation1 = Location.HLL114;
         Department newDepartment1 = Department.EE;
         String newEmail1 = "ee@rutgers.edu";
